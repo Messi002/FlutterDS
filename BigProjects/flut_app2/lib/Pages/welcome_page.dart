@@ -24,7 +24,7 @@ class _WelcomeState extends State<Welcome> {
 
     List<String> text = ["Trips", "Mountains", "OverView"];
 
-    List<String> text1 = ["Feel", "Explore", "Experience"];
+    List<String> text1 = ["Feel...", "Explore...", "Experience..."];
     return Scaffold(
       body: PageView.builder(
           scrollDirection: Axis.vertical,
@@ -49,7 +49,7 @@ class _WelcomeState extends State<Welcome> {
                         AppLargeText(text: text[index]),
                         AppText(
                           text: text1[index],
-                          size: 30,
+                          size: 25,
                         ),
                         SizedBox(
                           height: 20,
@@ -75,7 +75,8 @@ class _WelcomeState extends State<Welcome> {
                     Column(
                       children: List.generate(3, (indexSlider) {
                         return Container(
-                          height: index == indexSlider ? 25 : 8,
+                          margin: const EdgeInsets.only(bottom: 2),
+                          height: index == indexSlider ? 20 : 8,
                           width: 8,
                           decoration: BoxDecoration(
                             color: index == indexSlider
