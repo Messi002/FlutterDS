@@ -4,9 +4,7 @@ import 'package:flut_app/constants.dart';
 import 'package:flut_app/utils/app_large_text.dart';
 import 'package:flut_app/utils/app_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 
 class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -24,7 +22,11 @@ class _WelcomeState extends State<Welcome> {
       "welcome-three.png"
     ];
 
-  
+    List<String> text = [
+      "Trips",
+      "Mountains",
+      "OverView"
+    ];
 
     return Scaffold(
       body: PageView.builder(
@@ -46,12 +48,14 @@ class _WelcomeState extends State<Welcome> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AppLargeText(text: "Trips"),
+                        AppLargeText(text: text[index] ),
                         AppText(
                           text: "Mountain",
                           size: 30,
                         ),
-                        SizedBox(height: 20,),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Container(
                           width: 250,
                           child: AppText(
