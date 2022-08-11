@@ -25,3 +25,5 @@ A cubit is a class which extends blocBase and can be extended to manage any type
 When creating a cubit, we need to define the type of state which the cubit will be managing and 
 specify the initial state of the cubit.
 Each cubit has the ability to output a new state via emit.
+
+BlocObserver:-

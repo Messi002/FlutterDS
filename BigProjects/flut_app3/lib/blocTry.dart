@@ -38,6 +38,8 @@ Future<void> main(List<String> args) async {
   final cubit = CounterCubit();
   final subscription = cubit.stream.listen(print);
   cubit.increment();
+    cubit.increment();
+  cubit.increment();
   await Future.delayed(Duration.zero);
   await subscription.cancel();
   await cubit.close();
