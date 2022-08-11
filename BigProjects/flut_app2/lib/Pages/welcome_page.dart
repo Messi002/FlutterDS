@@ -41,6 +41,7 @@ class _WelcomeState extends State<Welcome> {
               child: Container(
                 margin: const EdgeInsets.only(top: 100, left: 20, right: 20),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,12 +73,15 @@ class _WelcomeState extends State<Welcome> {
                     ),
                     //column for dots
                     Column(
-                      children: List.generate(3, (index) {
+                      children: List.generate(3, (indexSlider) {
                         return Container(
-                          height: 25,
+                          height: index == indexSlider ? 25 : 8,
                           width: 8,
                           decoration: BoxDecoration(
-                            color: AppColors.mainColor,
+                            color: index == indexSlider
+                                ? AppColors.mainColor
+                                : AppColors.textColor2,
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         );
                       }),
