@@ -17,3 +17,4 @@ entire application.
 
 Streams:-
 *A stream is a sequence of asynchronous data.
+We can create a Stream in Dart by writing an async* (async generator) function.
