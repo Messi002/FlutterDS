@@ -15,17 +15,15 @@ class ResponButton extends StatelessWidget {
       height: 50,
       width: width,
       decoration: BoxDecoration(
-        color: AppColors.mainTextColor,
+        color: AppColors.mainColor,
         borderRadius: BorderRadius.circular(16),
-        image: DecorationImage(image: AssetImage(assetName))
       ),
       child: Row(
-        // crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Image.asset(
             "img/button-one.png",
-            fit: BoxFit.fill,
-            // width: width,
           ),
         ],
       ),

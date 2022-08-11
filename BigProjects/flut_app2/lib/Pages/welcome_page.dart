@@ -65,8 +65,22 @@ class _WelcomeState extends State<Welcome> {
                         SizedBox(
                           height: 40,
                         ),
-                        ResponButton(),
+                        ResponButton(
+                          width: 120,
+                        ),
                       ],
+                    ),
+                    //column for dots
+                    Column(
+                      children: List.generate(3, (index) {
+                        return Container(
+                          height: 25,
+                          width: 8,
+                          decoration: BoxDecoration(
+                            color: AppColors.mainColor,
+                          ),
+                        );
+                      }),
                     )
                   ],
                 ),
