@@ -81,7 +81,7 @@ class _WelcomeState extends State<Welcome> {
                           decoration: BoxDecoration(
                             color: index == indexSlider
                                 ? AppColors.mainColor
-                                : AppColors.textColor2,
+                                : AppColors.mainColor.withOpacity(0.3),
                             borderRadius: BorderRadius.circular(8),
                           ),
                         );
