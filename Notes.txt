@@ -1,0 +1,10 @@
+-bloc : Core bloc library
+-flutter_bloc: Powerful flutter widgets built to work with bloc in
+order to build fast, reactive mobile applications
+
+Why Bloc?
+Bloc makes it easy to separate presentation from 
+business logic, making your code fast, easy to test, and reusable.
+
+Bloc was designed with three core values in mind;
+-Simple
