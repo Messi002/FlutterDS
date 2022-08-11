@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
@@ -12,10 +12,15 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text("Search Page"),
-      ),
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(label:"Home", icon:Icon(Icons.apps)),
+          BottomNavigationBarItem(label:"Bar", icon:Icon(Icons.bar_chart_sharp,)),
+          BottomNavigationBarItem(label:"Search", icon:Icon(Icons.search)),
+          BottomNavigationBarItem(label:"My", icon:Icon(Icons.person)),
+        ],
+        ),
     );
   }
 }
