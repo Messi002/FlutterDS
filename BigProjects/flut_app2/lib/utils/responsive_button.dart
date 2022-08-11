@@ -12,19 +12,20 @@ class ResponButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: 50,
       width: width,
       decoration: BoxDecoration(
         color: AppColors.mainTextColor,
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+        borderRadius: BorderRadius.circular(16),
+        image: DecorationImage(image: AssetImage(assetName))
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Image.asset(
             "img/button-one.png",
-            fit: BoxFit.fitWidth,
-            width: width,
+            fit: BoxFit.fill,
+            // width: width,
           ),
         ],
       ),

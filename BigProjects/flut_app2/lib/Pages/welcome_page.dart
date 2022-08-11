@@ -65,9 +65,7 @@ class _WelcomeState extends State<Welcome> {
                         SizedBox(
                           height: 40,
                         ),
-                        ResponButton(
-                          width: 150,
-                        ),
+                        ResponButton(),
                       ],
                     )
                   ],
