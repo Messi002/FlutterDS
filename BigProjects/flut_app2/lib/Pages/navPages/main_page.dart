@@ -21,13 +21,27 @@ class _MainPageState extends State<MainPage> {
     MyPage(),
   ];
 
+   int _currentIndex = 0;
+  void onTap(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey.withOpacity(0.4),
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        elevation: 0,
         items: [
           BottomNavigationBarItem(label: "Home", icon: Icon(Icons.apps)),
-          BottomNavigationBarItem(label: "Bar",icon: Icon(Icons.bar_chart_sharp)),
+          BottomNavigationBarItem(
+              label: "Bar", icon: Icon(Icons.bar_chart_sharp)),
           BottomNavigationBarItem(label: "Search", icon: Icon(Icons.search)),
           BottomNavigationBarItem(label: "My", icon: Icon(Icons.person)),
         ],
