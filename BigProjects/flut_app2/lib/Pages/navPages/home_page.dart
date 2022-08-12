@@ -10,9 +10,10 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+    TabController _tabController = TabController(length: 3, vsync: this);
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,14 +46,29 @@ class _HomePageState extends State<HomePage> {
             margin: const EdgeInsets.only(left: 20),
             child: AppLargeText(text: "Discover"),
           ),
-        SizedBox(height: 30,),
-        Container(
-          child: TabBar(tabs: [
-            Tab(text: "Places",),
-            Tab(text: "Inspiration",),
-            Tab(text: "Emotions",),
-          ]),
-        ),
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+            child: TabBar(controller: _tabController, tabs: [
+              Tab(
+                text: "Places",
+              ),
+              Tab(
+                text: "Inspiration",
+              ),
+              Tab(
+                text: "Emotions",
+              ),
+            ]),
+          ),
+          Container(
+            child: TabBarView(controller: _tabController, children: [
+              Text("data"),
+              Text("data1"),
+              Text("data2"),
+            ]),
+          ),
         ],
       ),
     );
