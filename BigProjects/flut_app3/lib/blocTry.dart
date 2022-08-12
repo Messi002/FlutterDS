@@ -81,7 +81,9 @@ class simpleBlocObserver extends BlocObserver {
 
 void main(List<String> args) {
   Bloc.observer = simpleBlocObserver();
+  Bloc.observer = simpleBlocObserver();
   CounterCubit();
+  CounterCubit().increment();
   CounterCubit().increment();
   CounterCubit().close();
 }
