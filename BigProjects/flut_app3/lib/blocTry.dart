@@ -22,28 +22,29 @@ import 'package:bloc/bloc.dart';
 //   print(sum);
 // }
 
-class CounterCubit extends Cubit<int> {
-  CounterCubit() : super(0);
+// class CounterCubit extends Cubit<int> {
+//   CounterCubit() : super(0);
 
-  void increment() => emit(state + 1);
+//   void increment() => emit(state + 1);
 
-  @override
-  void onChange(Change<int> change) {
-    super.onChange(change);
-    print(change);
-  }
-}
+//   @override
+//   void onChange(Change<int> change) {
 
-Future<void> main(List<String> args) async {
-  final cubit = CounterCubit();
-  final subscription = cubit.stream.listen(print);
-  cubit.increment();
-    cubit.increment();
-  cubit.increment();
-  await Future.delayed(Duration.zero);
-  await subscription.cancel();
-  await cubit.close();
-}
+//     super.onChange(change);
+//     print(change);
+//   }
+// }
+
+// Future<void> main(List<String> args) async {
+//   final cubit = CounterCubit();
+//   final subscription = cubit.stream.listen(print);
+//   cubit.increment();
+//     cubit.increment();
+//   cubit.increment();
+//   await Future.delayed(Duration.zero);
+//   await subscription.cancel();
+//   await cubit.close();
+// }
 
 // void main(List<String> args) {
 //   final cubit = CounterCubit();
@@ -54,3 +55,33 @@ Future<void> main(List<String> args) async {
 //   print(cubit.state);
 //   cubit.close();
 // }
+
+//Using blocObserver
+
+class CounterCubit extends Cubit<int> {
+  CounterCubit() : super(0);
+
+  void increment() => emit(state + 1);
+
+  @override
+  void onChange(Change<int> change) {
+
+    super.onChange(change);
+    print(change);
+  }
+}
+
+class simpleBlocObserver extends BlocObserver {
+  @override
+  void onChange(BlocBase bloc, Change change) {
+    super.onChange(bloc, change);
+    print('${bloc.runtimeType} $change');
+  }
+}
+
+void main(List<String> args) {
+  Bloc.observer = simpleBlocObserver();
+  CounterCubit();
+  CounterCubit().increment();
+  CounterCubit().close();
+}
