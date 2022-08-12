@@ -71,6 +71,12 @@ class CounterCubit extends Cubit<int> {
     super.onChange(change);
     print(change);
   }
+
+  @override
+  void onError(Object error, StackTrace stackTrace) {
+    print("$error, $stackTrace");
+    super.onError(error, stackTrace);
+  }
 }
 
 class simpleBlocObserver extends BlocObserver {
