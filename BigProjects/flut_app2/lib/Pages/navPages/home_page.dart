@@ -46,6 +46,13 @@ class _HomePageState extends State<HomePage> {
             child: AppLargeText(text: "Discover"),
           ),
         SizedBox(height: 30,),
+        Container(
+          child: TabBar(tabs: [
+            Tab(text: "Places",),
+            Tab(text: "Inspiration",),
+            Tab(text: "Emotions",),
+          ]),
+        ),
         ],
       ),
     );
