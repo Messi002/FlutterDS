@@ -45,6 +45,7 @@ class _HomePageState extends State<HomePage> {
             margin: const EdgeInsets.only(left: 20),
             child: AppLargeText(text: "Discover"),
           ),
+        SizedBox(height: 30,),
         ],
       ),
     );
