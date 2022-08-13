@@ -93,7 +93,20 @@ class FetchResult {
 
 class PersonBloc extends Bloc<LoadAction, FetchResult?> {
   final Map<PersonUrl, Iterable<Person>> _cache = {};
-  PersonBloc() : super(null);
+  PersonBloc() : super(null) {
+    on<LoadPersonAction>(
+      (event, emit) {
+      final url = event.url;
+      if (_cache.containsKey(url)) {
+        final cachedPersons = _cache[url];
+        final result = FetchResult(
+          persons: cachedPersons,
+          isRetrievedFromCache: true,
+        );
+        emit(result);
+      }
+    });
+  }
 }
 
 class MyHomePage extends StatefulWidget {
