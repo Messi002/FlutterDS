@@ -37,8 +37,27 @@ class NamesCubit extends Cubit<String?> {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  late final NamesCubit cubit;
+
+  @override
+  void initState() {
+    super.initState();
+    cubit = NamesCubit();
+  }
+
+  @override
+  void dispose() {
+    cubit.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
