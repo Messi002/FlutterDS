@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 );
               case ConnectionState.done:
-                return button;
+                return const SizedBox();
             }
           })),
     );
