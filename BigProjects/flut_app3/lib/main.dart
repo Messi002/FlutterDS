@@ -28,6 +28,25 @@ abstract class LoadAction {
   const LoadAction();
 }
 
+enum PersonUrl{
+  person1,
+  person2,
+}
+
+extension UrlString on PersonUrl{
+  String get urlString{
+    switch(this){
+      
+      case PersonUrl.person1:
+        // TODO: Handle this case.
+        break;
+      case PersonUrl.person2:
+        // TODO: Handle this case.
+        break;
+    }
+  }
+}
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
