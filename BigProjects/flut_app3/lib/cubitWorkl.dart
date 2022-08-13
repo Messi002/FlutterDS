@@ -64,8 +64,11 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(title:const Text("Names"),),
       body: StreamBuilder<String?>(
-        
-        builder: builder),
+        stream: cubit.stream,
+        builder: ((context, snapshot) {
+          
+        })
+        ),
     );
   }
 }
