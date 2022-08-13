@@ -31,6 +31,10 @@ extension RandomElement<T> on Iterable<T> {
 
 class NamesCubit extends Cubit<String?> {
   NamesCubit() : super(null);
+
+  void pickRandomName() {
+    emit(names.getRandomElement());
+  }
 }
 
 class MyHomePage extends StatelessWidget {
