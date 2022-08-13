@@ -28,21 +28,25 @@ abstract class LoadAction {
   const LoadAction();
 }
 
-enum PersonUrl{
+@immutable
+class LoadPersonAction implements LoadAction {
+  final PersonUrl url;
+
+  const LoadPersonAction({required this.url}) : super();
+}
+
+enum PersonUrl {
   person1,
   person2,
 }
 
-extension UrlString on PersonUrl{
-  String get urlString{
-    switch(this){
-      
+extension UrlString on PersonUrl {
+  String get urlString {
+    switch (this) {
       case PersonUrl.person1:
-        // TODO: Handle this case.
-        break;
+        return "http://127.0.0.1:5500/BigProjects/flut_app3/api/persons1.json";
       case PersonUrl.person2:
-        // TODO: Handle this case.
-        break;
+        return "http://127.0.0.1:5500/BigProjects/flut_app3/api/persons2.json";
     }
   }
 }
