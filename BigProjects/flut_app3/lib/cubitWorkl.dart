@@ -62,7 +62,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("My text"),
+      appBar: AppBar(title:const Text("Names"),),
+      body: StreamBuilder<String?>(
+        
+        builder: builder),
     );
   }
 }
