@@ -87,11 +87,14 @@ class FetchResult {
   });
   @override
   String toString() {
-  return 'FetchResult (isRetrievedFromCache = $isRetrievedFromCache, persons = $persons)';
+    return 'FetchResult (isRetrievedFromCache = $isRetrievedFromCache, persons = $persons)';
   }
 }
 
-
+class PersonBloc extends Bloc<LoadAction, FetchResult?> {
+  final Map<PersonUrl, Iterable<Person>> _cache = {};
+  PersonBloc() : super(null);
+}
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
