@@ -62,13 +62,16 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:const Text("Names"),),
+      appBar: AppBar(
+        title: const Text("Names"),
+      ),
       body: StreamBuilder<String?>(
-        stream: cubit.stream,
-        builder: ((context, snapshot) {
-          
-        })
-        ),
+          stream: cubit.stream,
+          builder: ((context, snapshot) {
+            final button = TextButton(
+                onPressed: () => cubit.pickRandomName(),
+                child: Text("Pick New"));
+          })),
     );
   }
 }
