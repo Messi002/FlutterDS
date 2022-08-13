@@ -2,8 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
-import 'dart:async';
-import 'dart:math' as math show Random;
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +23,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
+@immutable
+abstract class LoadAction {
+  const LoadAction();
+}
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -33,15 +36,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
+  late final Bloc myBloc;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("HomePage"),
       ),
-      
     );
   }
 }
