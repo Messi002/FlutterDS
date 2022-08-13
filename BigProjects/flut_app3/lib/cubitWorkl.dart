@@ -71,6 +71,22 @@ class _MyHomePageState extends State<MyHomePage> {
             final button = TextButton(
                 onPressed: () => cubit.pickRandomName(),
                 child: Text("Pick New"));
+
+            switch (snapshot.connectionState) {
+              case ConnectionState.none:
+                return button;
+              case ConnectionState.waiting:
+                return button;
+              case ConnectionState.active:
+                return Column(
+                  children: [
+                    Text(snapshot.data ?? ""),
+                    button,
+                  ],
+                );
+              case ConnectionState.done:
+                return button;
+            }
           })),
     );
   }
