@@ -29,6 +29,10 @@ extension RandomElement<T> on Iterable<T> {
   T getRandomElement() => elementAt(math.Random().nextInt(length));
 }
 
+class NamesCubit extends Cubit<String?> {
+  NamesCubit() : super(null);
+}
+
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
