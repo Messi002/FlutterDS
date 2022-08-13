@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'dart:math' as math show Random;
@@ -19,6 +21,12 @@ class MyApp extends StatelessWidget {
       home: const MyHomePage(),
     );
   }
+}
+
+const names = ["Hello", "World", "Jack"];
+
+extension RandomElement<T> on Iterable<T> {
+  T getRandomElement() => elementAt(math.Random().nextInt(length));
 }
 
 class MyHomePage extends StatelessWidget {
