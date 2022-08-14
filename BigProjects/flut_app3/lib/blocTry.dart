@@ -1,6 +1,7 @@
 // import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart' show immutable;
 
 // Stream<int> countStream(int max) async* {
 //   for (int i = 0; i < max; i++) {
@@ -58,40 +59,46 @@ import 'package:bloc/bloc.dart';
 
 //Using blocObserver
 
-class CounterCubit extends Cubit<int> {
-  CounterCubit() : super(0);
+// class CounterCubit extends Cubit<int> {
+//   CounterCubit() : super(0);
 
-  void increment() {
-    addError(Exception('increment error!'), StackTrace.current);
-    emit(state + 1);
-  }
+//   void increment() {
+//     addError(Exception('increment error!'), StackTrace.current);
+//     emit(state + 1);
+//   }
 
-  @override
-  void onChange(Change<int> change) {
-    super.onChange(change);
-    print(change);
-  }
+//   @override
+//   void onChange(Change<int> change) {
+//     super.onChange(change);
+//     print(change);
+//   }
 
-  @override
-  void onError(Object error, StackTrace stackTrace) {
-    print("$error, $stackTrace");
-    super.onError(error, stackTrace);
-  }
-}
+//   @override
+//   void onError(Object error, StackTrace stackTrace) {
+//     print("$error, $stackTrace");
+//     super.onError(error, stackTrace);
+//   }
+// }
 
-class simpleBlocObserver extends BlocObserver {
-  @override
-  void onChange(BlocBase bloc, Change change) {
-    super.onChange(bloc, change);
-    print('${bloc.runtimeType} $change');
-  }
-}
+// class simpleBlocObserver extends BlocObserver {
+//   @override
+//   void onChange(BlocBase bloc, Change change) {
+//     super.onChange(bloc, change);
+//     print('${bloc.runtimeType} $change');
+//   }
+// }
 
-void main(List<String> args) {
-  Bloc.observer = simpleBlocObserver();
-  Bloc.observer = simpleBlocObserver();
-  CounterCubit();
-  CounterCubit().increment();
-  CounterCubit().increment();
-  CounterCubit().close();
-}
+// void main(List<String> args) {
+//   Bloc.observer = simpleBlocObserver();
+//   Bloc.observer = simpleBlocObserver();
+//   CounterCubit();
+//   CounterCubit().increment();
+//   CounterCubit().increment();
+//   CounterCubit().close();
+// }
+
+
+
+@immutable abstract class CounterEvent{}
+
+

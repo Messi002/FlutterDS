@@ -27,3 +27,10 @@ specify the initial state of the cubit.
 Each cubit has the ability to output a new state via emit.
 
 BlocObserver:-
+
+                        //BLOC
+
+A bloc is a more advanced class which relies on events to trigger state chagnes
+rather than functions. Bloc as well as cubit extend BlocBase.
+However rather than calling a function on a Bloc and directly emitting a new state, Blocs
+receive events and convert the incoming events into outgoing states.
