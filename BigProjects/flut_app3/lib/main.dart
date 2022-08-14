@@ -33,53 +33,11 @@ class MyApp extends StatelessWidget {
   }
 }
 
-@immutable
-abstract class LoadAction {
-  const LoadAction();
-}
 
-@immutable
-class LoadPersonAction implements LoadAction {
-  final PersonUrl url;
 
-  const LoadPersonAction({required this.url}) : super();
-}
 
-enum PersonUrl {
-  person1,
-  person2,
-}
 
-extension UrlString on PersonUrl {
-  String get urlString {
-    switch (this) {
-      case PersonUrl.person1:
-        return "http://127.0.0.1:5500/BigProjects/flut_app3/api/persons1.json";
-      case PersonUrl.person2:
-        return "http://127.0.0.1:5500/BigProjects/flut_app3/api/persons2.json";
-    }
-  }
-}
 
-@immutable
-class Person {
-  final String name;
-  final int age;
-
-  const Person({
-    required this.name,
-    required this.age,
-  });
-
-  Person.fromJson(Map<String, dynamic> json)
-      : name = json['name'] as String,
-        age = json["age"] as int;
-
-  @override
-  String toString() {
-    return 'Person (name = $name, age = $age)';
-  }
-}
 
 Future<Iterable<Person>> getPersons(String url) => HttpClient()
     .getUrl(Uri.parse(url))
@@ -183,6 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   final person = persons[index]!;
                   return ListTile(
                     title: Text(person.name),
+                    trailing: Text(person.age.toString()),
                   );
                 }),
               ),
