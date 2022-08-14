@@ -109,7 +109,8 @@ class CounterInc implements CounterEvent {}
 class CounterBloc extends Bloc<CounterEvent, int> {
   CounterBloc() : super(1) {
     on<CounterInc>((event, emit) {
-      emit((state +1) * 2);
+      addError(Exception('Increment Error!'), StackTrace.current);
+      emit((state + 1) * 2);
     });
   }
 
@@ -117,6 +118,24 @@ class CounterBloc extends Bloc<CounterEvent, int> {
   void onChange(Change<int> change) {
     super.onChange(change);
     print(change);
+  }
+
+  @override
+  void onTransition(Transition<CounterEvent, int> transition) {
+    super.onTransition(transition);
+    print(transition);
+  }
+
+  @override
+  void onEvent(CounterEvent event) {
+    super.onEvent(event);
+    print(event);
+  }
+
+  @override
+  void onError(Object error, StackTrace stackTrace) {
+    super.onError(error, stackTrace);
+    print('$error, $stackTrace');
   }
 }
 
