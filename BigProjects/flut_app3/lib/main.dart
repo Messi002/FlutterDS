@@ -149,13 +149,20 @@ class _MyHomePageState extends State<MyHomePage> {
                         .add(const LoadPersonAction(url: PersonUrl.person1));
                   },
                   child: Text("Load Json 1")),
-              TextButton(onPressed: () {
-                context
+              TextButton(
+                  onPressed: () {
+                    context
                         .read<PersonBloc>()
                         .add(const LoadPersonAction(url: PersonUrl.person2));
-              }, child: Text("Load Json 2")),
+                  },
+                  child: Text("Load Json 2")),
             ],
-          )
+          ),
+          BlocBuilder<PersonBloc, FetchResult?>(
+            
+            builder: ((context, state) {
+            return Container();
+          })),
         ],
       ),
     );
