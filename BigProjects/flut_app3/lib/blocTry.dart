@@ -97,8 +97,16 @@ import 'package:flutter/foundation.dart' show immutable;
 //   CounterCubit().close();
 // }
 
+@immutable
+abstract class CounterEvent {}
 
+@immutable
+class CounterInc implements CounterEvent {}
 
-@immutable abstract class CounterEvent{}
-
-
+class CounterBloc extends Bloc<CounterEvent, int> {
+  CounterBloc() : super(0) {
+    on<CounterInc>((event, emit) {
+      emit(state + 1);
+    });
+  }
+}
