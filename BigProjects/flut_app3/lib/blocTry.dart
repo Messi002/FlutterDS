@@ -1,7 +1,13 @@
 // import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc/bloc.dart';
+import 'dart:ui';
 import 'package:flutter/foundation.dart' show immutable;
+import 'dart:developer' as devtools show log;
+
+extension Log on Object {
+  void log() => devtools.log(toString());
+}
 
 // Stream<int> countStream(int max) async* {
 //   for (int i = 0; i < max; i++) {
@@ -97,6 +103,7 @@ import 'package:flutter/foundation.dart' show immutable;
 //   CounterCubit().close();
 // }
 
+//            BLOC PRATICALS
 @immutable
 abstract class CounterEvent {}
 
@@ -106,7 +113,17 @@ class CounterInc implements CounterEvent {}
 class CounterBloc extends Bloc<CounterEvent, int> {
   CounterBloc() : super(0) {
     on<CounterInc>((event, emit) {
+      emit.log();
       emit(state + 1);
     });
   }
+}
+
+Future<void> main() async {
+  final bloc = CounterBloc();
+  print(bloc.state);
+  bloc.add(CounterInc());
+  await Future.delayed(Duration.zero);
+  print(bloc.state);
+  bloc.close();
 }
