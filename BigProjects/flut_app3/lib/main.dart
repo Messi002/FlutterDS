@@ -21,7 +21,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: BlocProvider(
+        create: (_) => PersonBloc(),
+        child: const MyHomePage(),
+      ),
     );
   }
 }
@@ -94,19 +97,30 @@ class FetchResult {
 class PersonBloc extends Bloc<LoadAction, FetchResult?> {
   final Map<PersonUrl, Iterable<Person>> _cache = {};
   PersonBloc() : super(null) {
-    on<LoadPersonAction>(
-      (event, emit) {
+    on<LoadPersonAction>((event, emit) async {
       final url = event.url;
       if (_cache.containsKey(url)) {
-        final cachedPersons = _cache[url];
+        final cachedPersons = _cache[url]!;
         final result = FetchResult(
           persons: cachedPersons,
           isRetrievedFromCache: true,
         );
         emit(result);
+      } else {
+        final persons = await getPersons(url.urlString);
+        _cache[url] = persons;
+        final result = FetchResult(
+          persons: persons,
+          isRetrievedFromCache: false,
+        );
+        emit(result);
       }
     });
   }
+}
+
+extension Subscript<T> on Iterable<T> {
+  T? operator [](int index) => length > index ? elementAt(index) : null;
 }
 
 class MyHomePage extends StatefulWidget {
@@ -123,6 +137,26 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("HomePage"),
+      ),
+      body: Column(
+        children: [
+          Row(
+            children: [
+              TextButton(
+                  onPressed: () {
+                    context
+                        .read<PersonBloc>()
+                        .add(const LoadPersonAction(url: PersonUrl.person1));
+                  },
+                  child: Text("Load Json 1")),
+              TextButton(onPressed: () {
+                context
+                        .read<PersonBloc>()
+                        .add(const LoadPersonAction(url: PersonUrl.person2));
+              }, child: Text("Load Json 2")),
+            ],
+          )
+        ],
       ),
     );
   }
