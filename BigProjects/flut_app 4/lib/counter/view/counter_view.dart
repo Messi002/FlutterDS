@@ -17,6 +17,16 @@ class CounterView extends StatelessWidget {
           },
         ),
       ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            key: const Key('counterView_increment_floatingActionButton'),
+            onPressed: () => context.read<CounterCubit>().increment(),
+          child: const Icon(Icons.add),),
+        ],
+      ),
     );
   }
 }
