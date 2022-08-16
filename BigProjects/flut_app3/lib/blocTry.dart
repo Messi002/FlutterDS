@@ -101,52 +101,56 @@ extension Log on Object {
 //   CounterCubit().close();
 // }
 
+
+
 //            BLOC PRATICALS
-abstract class CounterEvent {}
+// abstract class CounterEvent {}
 
-class CounterInc implements CounterEvent {}
+// class CounterInc implements CounterEvent {}
 
-class CounterBloc extends Bloc<CounterEvent, int> {
-  CounterBloc() : super(1) {
-    on<CounterInc>((event, emit) {
-      addError(Exception('Increment Error!'), StackTrace.current);
-      emit((state + 1) * 2);
-    });
-  }
+// class CounterBloc extends Bloc<CounterEvent, int> {
+//   CounterBloc() : super(1) {
+//     on<CounterInc>((event, emit) {
+//       addError(Exception('Increment Error!'), StackTrace.current);
+//       emit((state + 1) * 2);
+//     });
+//   }
 
-  @override
-  void onChange(Change<int> change) {
-    super.onChange(change);
-    print(change);
-  }
+//   @override
+//   void onChange(Change<int> change) {
+//     super.onChange(change);
+//     print(change);
+//   }
 
-  @override
-  void onTransition(Transition<CounterEvent, int> transition) {
-    super.onTransition(transition);
-    print(transition);
-  }
+//   @override
+//   void onTransition(Transition<CounterEvent, int> transition) {
+//     super.onTransition(transition);
+//     print(transition);
+//   }
 
-  @override
-  void onEvent(CounterEvent event) {
-    super.onEvent(event);
-    print(event);
-  }
+//   @override
+//   void onEvent(CounterEvent event) {
+//     super.onEvent(event);
+//     print(event);
+//   }
 
-  @override
-  void onError(Object error, StackTrace stackTrace) {
-    super.onError(error, stackTrace);
-    print('$error, $stackTrace');
-  }
-}
+//   @override
+//   void onError(Object error, StackTrace stackTrace) {
+//     super.onError(error, stackTrace);
+//     print('$error, $stackTrace');
+//   }
+// }
 
-Future<void> main() async {
-  final bloc = CounterBloc();
-  print(bloc.state);
-  bloc.add(CounterInc());
-  await Future.delayed(Duration.zero);
-  print(bloc.state);
-  bloc.add(CounterInc());
-  await Future.delayed(Duration.zero);
-  print(bloc.state);
-  await bloc.close();
-}
+// Future<void> main() async {
+//   final bloc = CounterBloc();
+//   print(bloc.state);
+//   bloc.add(CounterInc());
+//   await Future.delayed(Duration.zero);
+//   print(bloc.state);
+//   bloc.add(CounterInc());
+//   await Future.delayed(Duration.zero);
+//   print(bloc.state);
+//   await bloc.close();
+// }
+
+
