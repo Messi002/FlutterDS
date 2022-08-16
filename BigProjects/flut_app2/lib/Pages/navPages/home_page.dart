@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
+import 'package:flut_app/constants.dart';
 import 'package:flut_app/utils/app_large_text.dart';
 import 'package:flutter/material.dart';
 
@@ -59,7 +60,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   isScrollable: true,
                   labelPadding: const EdgeInsets.only(left: 20, right: 20),
                   indicatorSize: TabBarIndicatorSize.label,
-                  indicator: ,
+                  indicator:
+                      CircleTabIndicator(color: AppColors.mainColor, radius: 4),
                   // ignore: prefer_const_literals_to_create_immutables
                   tabs: [
                     Tab(
@@ -90,25 +92,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 }
 
-
-
-class CircleTabIndicator extends Decoration{
+class CircleTabIndicator extends Decoration {
   final Color color;
   double radius;
-  CircleTabIndicator({required this.color,required this.radius});
-   @override
+  CircleTabIndicator({required this.color, required this.radius});
+  @override
   BoxPainter createBoxPainter([VoidCallback? onChanged]) {
-    return _CirlePainter(color: color,radius:radius);
+    return _CirlePainter(color: color, radius: radius);
   }
-
 }
 
-class _CirlePainter extends BoxPainter{
-    final Color color;
+class _CirlePainter extends BoxPainter {
+  final Color color;
   double radius;
- _CirlePainter({required this.color,required this.radius});
+  _CirlePainter({required this.color, required this.radius});
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-  }
+    Paint paint = Paint();
+    paint.color = color;
+    paint.isAntiAlias = true;
 
+    canvas.drawCircle(offset, radius, paint);
+  }
 }
