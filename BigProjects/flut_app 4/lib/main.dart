@@ -1,30 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'CounterBloc/counter_bloc.dart';
-import 'CounterBloc/counter_page.dart';
+import 'package:flutter/widgets.dart';
+import 'app.dart';
+import 'counter_observer.dart';
 
 void main() {
-  runApp(const MyApp());
+  Bloc.observer = CounterObserver();
+  runApp( MyApp());
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-  
-        primarySwatch: Colors.blue,
-      ),
-      home: BlocProvider(
-        create: (_) => CounterBloc(),
-      child: CounterPage(),
-      ),
-      );
-    
-  }
-}
-
