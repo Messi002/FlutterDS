@@ -18,6 +18,23 @@ class CounterPage extends StatelessWidget {
           child:Text("$state",style: TextStyle(fontSize: 24.0),)
         );
       }),
+      floatingActionButton: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Padding(padding: const EdgeInsets.symmetric(vertical: 5.0),
+          child: FloatingActionButton(onPressed: () => context.read<CounterBloc>().add(CounterInc()),
+          child: Icon(Icons.add),
+          ),
+          ),
+
+          Padding(padding: const EdgeInsets.symmetric(vertical: 5.0),
+          child: FloatingActionButton(onPressed: context.read<>().add(CounterDec()),
+          child: Icon(Icons.remove),
+          ),
+          ),
+        ],
+      ),
     );
   }
 }
