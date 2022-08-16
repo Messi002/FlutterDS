@@ -53,30 +53,32 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             child: Align(
               alignment: Alignment.centerLeft,
               child: TabBar(
-                controller: _tabController,
-                labelColor: Colors.black,
-                unselectedLabelColor: Colors.grey,
-                isScrollable: true,
-                labelPadding: const EdgeInsets.only(left: 20, right:20 ),
-                 tabs: [
-                Tab(
-                  text: "Places",
-                ),
-                Tab(
-                  text: "Inspiration",
-                ),
-                Tab(
-                  text: "Emotions",
-                ),
-              ]),
+                  controller: _tabController,
+                  labelColor: Colors.black,
+                  unselectedLabelColor: Colors.grey,
+                  isScrollable: true,
+                  labelPadding: const EdgeInsets.only(left: 20, right: 20),
+                  indicatorSize: TabBarIndicatorSize.label,
+                  indicator: ,
+                  // ignore: prefer_const_literals_to_create_immutables
+                  tabs: [
+                    Tab(
+                      text: "Places",
+                    ),
+                    Tab(
+                      text: "Inspiration",
+                    ),
+                    Tab(
+                      text: "Emotions",
+                    ),
+                  ]),
             ),
           ),
           Container(
             height: 300,
             width: double.maxFinite,
-            child: TabBarView(
-              controller: _tabController,
-               children: [
+            // ignore: prefer_const_literals_to_create_immutables
+            child: TabBarView(controller: _tabController, children: [
               Text("data"),
               Text("data1"),
               Text("data2"),
@@ -86,4 +88,27 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       ),
     );
   }
+}
+
+
+
+class CircleTabIndicator extends Decoration{
+  final Color color;
+  double radius;
+  CircleTabIndicator({required this.color,required this.radius});
+   @override
+  BoxPainter createBoxPainter([VoidCallback? onChanged]) {
+    return _CirlePainter(color: color,radius:radius);
+  }
+
+}
+
+class _CirlePainter extends BoxPainter{
+    final Color color;
+  double radius;
+ _CirlePainter({required this.color,required this.radius});
+  @override
+  void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
+  }
+
 }
