@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables
 
 import 'package:flut_app/Pages/navPages/bar_item_page.dart';
-import 'package:flut_app/Pages/navPages/home_page.dart';
+import 'package:flut_app/Pages/home_page.dart';
 import 'package:flut_app/Pages/navPages/profile_page.dart';
 import 'package:flut_app/Pages/navPages/search_page.dart';
 import 'package:flutter/material.dart';
