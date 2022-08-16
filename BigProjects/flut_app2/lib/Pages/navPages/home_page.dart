@@ -94,7 +94,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
-                            image: AssetImage('img/mountain.jpeg'), fit: BoxFit.cover)),
+                            image: AssetImage('img/mountain.jpeg'),
+                            fit: BoxFit.cover)),
                   );
                 },
               ),
@@ -103,7 +104,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ]),
           ),
           SizedBox(
-            height: 30,
+            height: 20,
           ),
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
@@ -123,26 +124,32 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 10,
           ),
           Container(
-            height: 120,
+            height: 80,
             width: double.maxFinite,
+            margin: const EdgeInsets.only(left: 20),
             child: ListView.builder(
+                scrollDirection: Axis.horizontal,
                 itemCount: 4,
                 itemBuilder: (_, index) {
-                  return Column(
-                    children: [
-                      Container(
-                    margin: const EdgeInsets.only( right: 40),
-                    height: 80,
-                    width: 80,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                            image: AssetImage('img/mountain.jpeg'), fit: BoxFit.cover)),
-                  )
-                    ],
+                  return Container(
+                    margin: const EdgeInsets.only(right: 38),
+                    child: Column(
+                      children: [
+                        Container(
+                          // margin: const EdgeInsets.only(right: 35),
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(
+                                  image: AssetImage('img/mountain.jpeg'),
+                                  fit: BoxFit.cover)),
+                        )
+                      ],
+                    ),
                   );
                 }),
           ),
