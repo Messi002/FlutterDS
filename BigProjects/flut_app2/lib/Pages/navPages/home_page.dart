@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, must_be_immutable
 
 import 'package:flut_app/constants.dart';
 import 'package:flut_app/utils/app_large_text.dart';
@@ -13,6 +13,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  Map<String, String> images = {
+    "balloning.png": "Balloning",
+    "hiking.png": "Hiking",
+    "kayaking.png": "Kayaking",
+    "snorkling.png": "Snorkling"
+  };
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -135,7 +141,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 itemCount: 4,
                 itemBuilder: (_, index) {
                   return Container(
-                    margin: const EdgeInsets.only(right: 35),
+                    margin: const EdgeInsets.only(right: 31),
                     child: Column(
                       children: [
                         Container(
@@ -145,15 +151,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               image: DecorationImage(
-                                  image: AssetImage('img/mountain.jpeg'),
+                                  image: AssetImage(
+                                      'img/${images.keys.elementAt(index)}'),
                                   fit: BoxFit.cover)),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 3,
                         ),
                         Container(
                           child: AppText(
-                            text: "Kayaki",
+                            text: "${images.values.elementAt(index)}",
                             color: AppColors.textColor2,
                             size: 13,
                           ),
