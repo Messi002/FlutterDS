@@ -111,8 +111,10 @@ class _CirlePainter extends BoxPainter {
     Paint paint = Paint();
     paint.color = color;
     paint.isAntiAlias = true;
-    final Offset circleOffset = Offset(configuration.size!.width/2 - radius/2, configuration.size!.height - radius);
+    final Offset circleOffset = Offset(
+        configuration.size!.width / 2 - radius / 2,
+        configuration.size!.height - radius);
 
-    canvas.drawCircle(offset, radius, paint);
+    canvas.drawCircle(offset + circleOffset, radius, paint);
   }
 }
