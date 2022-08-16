@@ -81,13 +81,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             width: double.maxFinite,
             // ignore: prefer_const_literals_to_create_immutables
             child: TabBarView(controller: _tabController, children: [
-              Container(
-                height: 300,
-                width: 200,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    image: DecorationImage(
-                        image: AssetImage('img/mountain.jpeg'))),
+              ListView.builder(
+                itemCount: 3,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    height: 300,
+                    width: 200,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        image: DecorationImage(
+                            image: AssetImage('img/mountain.jpeg'))),
+                  );
+                },
               ),
               Text("data1"),
               Text("data2"),
