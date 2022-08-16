@@ -48,66 +48,72 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
           SizedBox(
-            height: 40,
+            height: 10,
           ),
           Container(
             margin: const EdgeInsets.only(left: 20),
             child: AppLargeText(text: "Discover"),
           ),
           SizedBox(
-            height: 30,
+            height: 15,
           ),
-          Container(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: TabBar(
-                  controller: _tabController,
-                  labelColor: Colors.black,
-                  unselectedLabelColor: Colors.grey,
-                  isScrollable: true,
-                  labelPadding: const EdgeInsets.only(left: 20, right: 20),
-                  indicatorSize: TabBarIndicatorSize.label,
-                  indicator:
-                      CircleTabIndicator(color: AppColors.mainColor, radius: 4),
-                  // ignore: prefer_const_literals_to_create_immutables
-                  tabs: [
-                    Tab(
-                      text: "Places",
-                    ),
-                    Tab(
-                      text: "Inspiration",
-                    ),
-                    Tab(
-                      text: "Emotions",
-                    ),
-                  ]),
+          Expanded(
+            flex: 0,
+            child: Container(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: TabBar(
+                    controller: _tabController,
+                    labelColor: Colors.black,
+                    unselectedLabelColor: Colors.grey,
+                    isScrollable: true,
+                    labelPadding: const EdgeInsets.only(left: 20, right: 20),
+                    indicatorSize: TabBarIndicatorSize.label,
+                    indicator: CircleTabIndicator(
+                        color: AppColors.mainColor, radius: 4),
+                    // ignore: prefer_const_literals_to_create_immutables
+                    tabs: [
+                      Tab(
+                        text: "Places",
+                      ),
+                      Tab(
+                        text: "Inspiration",
+                      ),
+                      Tab(
+                        text: "Emotions",
+                      ),
+                    ]),
+              ),
             ),
           ),
-          Container(
-            height: 300,
-            width: double.maxFinite,
-            // ignore: prefer_const_literals_to_create_immutables
-            child: TabBarView(controller: _tabController, children: [
-              ListView.builder(
-                padding: const EdgeInsets.only(left: 20),
-                scrollDirection: Axis.horizontal,
-                itemCount: 3,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    margin: const EdgeInsets.only(top: 10, right: 15),
-                    height: 300,
-                    width: 200,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                            image: AssetImage('img/mountain.jpeg'),
-                            fit: BoxFit.cover)),
-                  );
-                },
-              ),
-              Text("data1"),
-              Text("data2"),
-            ]),
+          Expanded(
+            flex: 2,
+            child: Container(
+              height: 250,
+              width: double.maxFinite,
+              // ignore: prefer_const_literals_to_create_immutables
+              child: TabBarView(controller: _tabController, children: [
+                ListView.builder(
+                  padding: const EdgeInsets.only(left: 20),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      margin: const EdgeInsets.only(top: 10, right: 15),
+                      height: 250,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                              image: AssetImage('img/mountain.jpeg'),
+                              fit: BoxFit.cover)),
+                    );
+                  },
+                ),
+                Text("data1"),
+                Text("data2"),
+              ]),
+            ),
           ),
           SizedBox(
             height: 20,
