@@ -1,4 +1,4 @@
-import 'package:flut_app/counter_bloc.dart';
+import 'package:flut_app/CounterBloc/counter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,7 +29,7 @@ class CounterPage extends StatelessWidget {
           ),
 
           Padding(padding: const EdgeInsets.symmetric(vertical: 5.0),
-          child: FloatingActionButton(onPressed: context.read<>().add(CounterDec()),
+          child: FloatingActionButton(onPressed: () => context.read<CounterBloc>().add(CounterDec()),
           child: Icon(Icons.remove),
           ),
           ),
@@ -38,3 +38,5 @@ class CounterPage extends StatelessWidget {
     );
   }
 }
+
+
