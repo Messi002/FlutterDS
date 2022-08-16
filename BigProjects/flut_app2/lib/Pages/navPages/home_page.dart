@@ -2,6 +2,7 @@
 
 import 'package:flut_app/constants.dart';
 import 'package:flut_app/utils/app_large_text.dart';
+import 'package:flut_app/utils/app_text.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -82,9 +83,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             // ignore: prefer_const_literals_to_create_immutables
             child: TabBarView(controller: _tabController, children: [
               ListView.builder(
+                padding: const EdgeInsets.only(left: 20),
+                scrollDirection: Axis.horizontal,
                 itemCount: 3,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
+                    margin: const EdgeInsets.only(top: 10, right: 15),
                     height: 300,
                     width: 200,
                     decoration: BoxDecoration(
@@ -98,6 +102,25 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               Text("data2"),
             ]),
           ),
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppLargeText(
+                  text: "Explore more",
+                  size: 22,
+                ),
+                AppText(
+                  text: "See all",
+                  color: AppColors.textColor1,
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
