@@ -92,9 +92,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     height: 300,
                     width: 200,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
-                            image: AssetImage('img/mountain.jpeg'))),
+                            image: AssetImage('img/mountain.jpeg'), fit: BoxFit.cover)),
                   );
                 },
               ),
@@ -112,15 +112,40 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               children: [
                 AppLargeText(
                   text: "Explore more",
-                  size: 22,
+                  size: 15,
                 ),
                 AppText(
                   text: "See all",
                   color: AppColors.textColor1,
+                  size: 13,
                 ),
               ],
             ),
-          )
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 120,
+            width: double.maxFinite,
+            child: ListView.builder(
+                itemCount: 4,
+                itemBuilder: (_, index) {
+                  return Column(
+                    children: [
+                      Container(
+                    margin: const EdgeInsets.only( right: 40),
+                    height: 80,
+                    width: 80,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        image: DecorationImage(
+                            image: AssetImage('img/mountain.jpeg'), fit: BoxFit.cover)),
+                  )
+                    ],
+                  );
+                }),
+          ),
         ],
       ),
     );
