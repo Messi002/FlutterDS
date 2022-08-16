@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 itemCount: 4,
                 itemBuilder: (_, index) {
                   return Container(
-                    margin: const EdgeInsets.only(right: 38),
+                    margin: const EdgeInsets.only(right: 35),
                     child: Column(
                       children: [
                         Container(
@@ -147,6 +147,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               image: DecorationImage(
                                   image: AssetImage('img/mountain.jpeg'),
                                   fit: BoxFit.cover)),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          child: AppText(
+                            text: "Kayaki",
+                            color: AppColors.textColor2,
+                            size: 13,
+                          ),
                         )
                       ],
                     ),
