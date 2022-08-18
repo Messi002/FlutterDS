@@ -10,5 +10,5 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
 
   StreamSubscription<int>? _tickerSubscription;
 
-  TimerBloc() : super(const TimerInitial(_duration));
+  TimerBloc({required Ticker ticker}) : _ticker = ticker, super(const TimerInitial(_duration));
 }
