@@ -42,17 +42,21 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
     }
   }
 
- void _onResumed(TimerResumed resume, Emitter<TimerState> emit) {
+  void _onResumed(TimerResumed resume, Emitter<TimerState> emit) {
     if (state is TimerRunPause) {
       _tickerSubscription!.resume();
       emit(TimerRunInProgress(state.duration));
     }
   }
+
   void _onTicked(TimerTicked event, Emitter<TimerState> emit) {
     emit(event.duration > 0
         ? TimerRunInProgress(event.duration)
         : TimerRunComplete());
   }
 
-  void _onReset(TimerReset event, Emitter<TimerState> emit)
+  void _onReset(TimerReset event, Emitter<TimerState> emit) {
+    _tickerSubscription!.cancel();
+    emit(const TimerInitial(_duration));
+  }
 }
