@@ -33,10 +33,21 @@ class MyHomePage extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: FloatingActionButton(onPressed: onPressed, 
-            child: Text('Increment'),
+            child: FloatingActionButton(onPressed: c.increment()), 
+            child: Icon(Icons.add),
             ),
-          )
+          ),
+           Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: FloatingActionButton(onPressed: ()=> Get.to(Other()), 
+            child: Icon(Icons.add),
+            ),
+          ), Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: FloatingActionButton(onPressed: ()=> Get.to(Other()), 
+            child: Icon(Icons.add),
+            ),
+          ),
         ],
       ),
       );
