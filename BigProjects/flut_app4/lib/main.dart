@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flut_app/timer/view/timer_page.dart';
 
 
 void main() => runApp(const MyApp());
