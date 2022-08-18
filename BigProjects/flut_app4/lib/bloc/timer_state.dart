@@ -26,4 +26,15 @@ class TimerRunPause extends TimerState{
   }
 }
 
-class
+class TimerRunInProgress extends TimerState{
+  TimerRunInProgress(super.duration);
+@override
+  String toString() {
+    return 'TimerRunInProgress {duration: $duration}';
+  }
+}
+
+class TimerRunComplete extends TimerState{
+  TimerRunComplete():super(0);
+
+}
