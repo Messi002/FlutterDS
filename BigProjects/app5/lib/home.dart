@@ -22,13 +22,30 @@ class HomePage extends GetView<StoreController> {
             MainCard(title: 'Store Info'),
            Column(
             children: [
-               Obx(() {
-              return Flexible(child: Text(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                 const Text("StoreName:"),
+                   Obx(() {
+              return Flexible(fit: FlexFit.tight,child: Text(
                 controller.storeName.value.toString(),
                 style:const TextStyle(fontSize: 22,fontWeight: FontWeight.bold),
+              ),);
+            }),
+                ],
               ),
-              fit: FlexFit.tight,);
-            })
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                 const Text("Follower Couunt:"),
+                   Obx(() {
+              return Flexible(fit: FlexFit.tight,child: Text(
+                controller.followerCount.value.toString(),
+                style:const TextStyle(fontSize: 22,fontWeight: FontWeight.bold),
+              ),);
+            }),
+                ],
+              ),
             ],
            ),
           ],
