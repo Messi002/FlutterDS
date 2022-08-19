@@ -34,6 +34,55 @@ class SideDrawer extends StatelessWidget {
               ),
               onTap: () => Get.offAndToNamed('/edit_name'),
             ),
+              ListTile(
+              title: Text(
+                "Add followers",
+                style: TextStyle(
+                  fontSize: 18.0,
+                  // color: Get.isDarkMode
+                  //     ? AppColors.spaceCadet
+                  //     : AppColors.spaceBlue,
+                ),
+              ),
+              onTap: () => Get.offAndToNamed('/add_followers'),
+            ),
+              ListTile(
+              title: Text(
+                "Increment Followers",
+                style: TextStyle(
+                  fontSize: 18.0,
+                  // color: Get.isDarkMode
+                  //     ? AppColors.spaceCadet
+                  //     : AppColors.spaceBlue,
+                ),
+              ),
+              onTap: () => Get.offAndToNamed('/edit_follower_count'),
+            ),
+              ListTile(
+              title: Text(
+                "Toggle Store Status",
+                style: TextStyle(
+                  fontSize: 18.0,
+                  // color: Get.isDarkMode
+                  //     ? AppColors.spaceCadet
+                  //     : AppColors.spaceBlue,
+                ),
+              ),
+              onTap: () => Get.offAndToNamed('/toggle_status'),
+            ),
+            ListTile(
+              title: Text(
+                "Add Reviews",
+                style: TextStyle(
+                  fontSize: 18.0,
+                  // color: Get.isDarkMode
+                  //     ? AppColors.spaceCadet
+                  //     : AppColors.spaceBlue,
+                ),
+              ),
+              onTap: () => Get.offAndToNamed('/add_reviews'),
+            ),
+            
         ],
       ),
     );
