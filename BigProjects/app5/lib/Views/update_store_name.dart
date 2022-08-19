@@ -1,26 +1,46 @@
 import 'package:app5/Utils/input.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'dart:async';
 
 import '../Controllers/store_controller.dart';
 
 class UpdateStoreName extends StatelessWidget {
-   UpdateStoreName({Key? key}) : super(key: key);
+  UpdateStoreName({Key? key}) : super(key: key);
   final storeController = Get.find<StoreController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Update Store Name")),
-      body: Padding(padding: EdgeInsets.all(24),
-      child: Column(
-        children: [
-          const Text("Enter Store Name",textAlign: TextAlign.center,),
-         SizedBox(height: 16),
-         Input(hintText: 'store name', controller: storeController.storeNameEditingController,),
-          SizedBox(height: 20),
-        ],
-      ),
+      body: Padding(
+        padding: EdgeInsets.all(24),
+        child: Column(
+          children: [
+            const Text(
+              "Enter Store Name",
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 16),
+            Input(
+              hintText: 'store name',
+              controller: storeController.storeNameEditingController,
+            ),
+            SizedBox(height: 20),
+            ElevatedButton.icon(
+                onPressed: () async{
+                  storeController.updateStoreName(
+                      storeController.storeNameEditingController.text);
+                 await Get.snackbar("Successful update!", "Done!",
+                      duration: Duration(seconds: 5),
+                      snackPosition: SnackPosition.BOTTOM,
+                      showProgressIndicator: true);
+                  Get.offNamed('/');
+                },
+                icon: Icon(Icons.app_registration),
+                label: Text('Update'))
+          ],
+        ),
       ),
     );
   }

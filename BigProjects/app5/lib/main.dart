@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:app5/store_bindings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,9 +23,9 @@ class MyApp extends StatelessWidget {
        getPages: [
         GetPage(
           name: '/',
-          page: () =>const HomePage(),
+          page: () => HomePage(),
         ),
-        GetPage(name: '/edit_name', page: () => const UpdateStoreName()),
+        GetPage(name: '/edit_name', page: () => UpdateStoreName()),
         // GetPage(name: '/add_followers', page: () => AddFollowers()),
         GetPage(name: '/toggle_status', page: () => StoreStatus()),
         // GetPage(name: '/edit_follower_count', page: () => AddFollowerCount()),
