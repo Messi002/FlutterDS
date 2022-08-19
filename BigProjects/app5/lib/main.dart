@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/edit_name', page: () => UpdateStoreName()),
         // GetPage(name: '/add_followers', page: () => AddFollowers()),
         GetPage(name: '/toggle_status', page: () => StoreStatus()),
-        // GetPage(name: '/edit_follower_count', page: () => AddFollowerCount()),
+        GetPage(name: '/edit_follower_count', page: () => AddFollowerCount()),
         // GetPage(name: '/add_reviews', page: () => AddReviews()),
         // GetPage(name: '/update_menu', page: () => const UpdateMenu()),
       ],
