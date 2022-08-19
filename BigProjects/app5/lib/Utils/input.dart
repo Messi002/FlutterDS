@@ -5,15 +5,15 @@ class Input extends StatelessWidget {
   final Function(String)? onSubmit;
   final TextEditingController? controller;
 
-  const Input({
+   const Input({Key? key, 
     this.controller,
     required this.hintText,
     this.onSubmit,
-  });
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return TextField(
-       autofocus: true,
+      autofocus: true,
       controller: controller,
       decoration: InputDecoration(
         isDense: true,
