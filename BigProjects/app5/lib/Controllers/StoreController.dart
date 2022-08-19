@@ -10,19 +10,20 @@ class StoreController extends GetxController {
 
   final storeNameEditingController = TextEditingController();
   final followerController = TextEditingController();
-  final reeviewNameEditingController = TextEditingController();
-  final reviewEditingController = TextEditingController();
+  final reviewNameEditingController = TextEditingController();
+  final reviewsEditingController = TextEditingController();
 
   updateStoreName(String name) {
     storeName(name);
+    //TODO: storeName.value = name;
   }
 
   updatefollowerCount() {
     followerCount(followerCount.value++);
   }
-    updateStoreStatus(String name) {
-    storeName(name);
-  }  updateStoreName(String name) {
-    storeName(name);
+
+  updateStoreStatus(bool isOpen) {
+    storeStatus(isOpen);
   }
+
 }
