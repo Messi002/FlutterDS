@@ -25,6 +25,7 @@ class StoreStatus extends StatelessWidget {
               const SizedBox(height: 16),
               Obx(
                 () => Switch(
+                 
                   onChanged: (value) => storeController.storeStatus(value),
                   activeColor: Colors.green,
                   value: storeController.storeStatus.value,
