@@ -19,11 +19,7 @@ class HomePage extends GetView<StoreController> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              MainCard(
-                title: 'Store Info',
-                body: Column(
-                  children: [
-                    Row(
+              Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Text("StoreName:"),
@@ -59,20 +55,44 @@ class HomePage extends GetView<StoreController> {
                     const SizedBox(height: 20.0),
                     GetX<StoreController>(
                       builder: (sController) {
-                        return Flexible(
-                          child: Text( 
+                        return Container(
+                          child: Text(
                             sController.storeStatus.value ? 'Open' : 'Closed',
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                  color: sController.storeStatus.value
-                                      ? Colors.green.shade700
-                                      : Colors.red,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                color: sController.storeStatus.value
+                                    ? Colors.green.shade700
+                                    : Colors.red,
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold),
                           ),
                         );
                       },
-                    )
+                    ),
+                     const SizedBox(
+                height: 20.0,
+              ),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Follower Name:"),
+                    Obx(
+                    () => ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: controller.followerList.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Text(
+                            controller.followerList[index].toString(),
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                        );
+                      },
+                    ),
+                  )
                   ],
                 ),
               ),
