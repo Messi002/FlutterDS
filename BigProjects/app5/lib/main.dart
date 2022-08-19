@@ -4,6 +4,7 @@ import 'package:app5/store_bindings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'Views/add_follower_count.dart';
 import 'Views/store_status.dart';
 import 'Views/update_store_name.dart';
 import 'home.dart';
