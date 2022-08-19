@@ -10,7 +10,12 @@ class HomePage extends GetView<StoreController> {
     return Scaffold(
       appBar: AppBar(title: const Text("MIRStore"),),
       body: Container(
-        padding: ,
+        padding: const EdgeInsets.all(10),
+        child: SingleChildScrollView(child: Column(
+          children: [
+            
+          ],
+        )),
       ),
     );
   }
