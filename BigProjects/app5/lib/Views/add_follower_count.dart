@@ -19,7 +19,20 @@ class AddFollowerCount extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            
+                      const Text(
+                'You have add these many followers to your store',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 28),
+              ),
+              const SizedBox(
+                height: 40.0,
+              ),
+                Obx(
+                () => Text(
+                  'With Obs & Obx: ${storeController.followerCount.value.toString()}',
+                  style: const TextStyle(fontSize: 28),
+                ),
+              ),
           ],
         ),
       ),),
