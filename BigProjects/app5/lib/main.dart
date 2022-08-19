@@ -1,7 +1,10 @@
+import 'package:app5/store_bindings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() => runApp(MyApp());
+import 'home.dart';
+
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -9,9 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialBinding: StoreBinding(),
       debugShowCheckedModeBanner: false,
       title: 'Demo',
-      home: HomePage(),
+      home:const HomePage(),
     );
   }
 }
