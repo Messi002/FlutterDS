@@ -32,6 +32,7 @@ class SideDrawer extends StatelessWidget {
                   //     : AppColors.spaceBlue,
                 ),
               ),
+              onTap: () => Get.offAndToNamed('/edit_name'),
             ),
         ],
       ),
