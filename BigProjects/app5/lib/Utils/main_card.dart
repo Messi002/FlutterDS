@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 class MainCard extends StatelessWidget {
   final String title;
-  final Widget body;
+  final Widget? body;
 
   const MainCard({
     Key? key,
     required this.title,
-    required this.body,
+    this.body,
   }) : super(key: key);
 
   @override
