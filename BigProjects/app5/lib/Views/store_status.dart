@@ -30,6 +30,7 @@ class StoreStatus extends StatelessWidget {
                   activeColor: Colors.green,
                   value: storeController.storeStatus.value,
                 ),
+                
               )
             ],
           ),

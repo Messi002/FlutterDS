@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class StoreController extends GetxController {
-  final storeName = 'MIRShop'.obs;
+  final storeName = 'MIRStore'.obs;
   final followerCount = 0.obs;
   final storeStatus = true.obs;
   final followerList = [].obs;
@@ -25,7 +25,7 @@ final reviews = [].obs;
   }
 
   updatefollowerCount() {
-    followerCount(followerCount.value++);
+    followerCount(followerCount.value+1);
   }
 
   updateStoreStatus(bool isOpen) {
