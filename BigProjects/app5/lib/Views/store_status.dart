@@ -5,8 +5,8 @@ import '../Controllers/store_controller.dart';
 
 class StoreStatus extends StatelessWidget {
   StoreStatus({Key? key}) : super(key: key);
-  //final storeController = Get.put(StoreController());
-  final storeController = Get.find<StoreController>();
+  final storeController = Get.put(StoreController());
+  // final storeController = Get.find<StoreController>();
 
   @override
   Widget build(BuildContext context) {

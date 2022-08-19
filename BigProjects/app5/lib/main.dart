@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'Views/store_status.dart';
+import 'Views/update_store_name.dart';
 import 'home.dart';
 
 void main() => runApp(const MyApp());
@@ -20,9 +21,9 @@ class MyApp extends StatelessWidget {
        getPages: [
         GetPage(
           name: '/',
-          page: () => HomePage(),
+          page: () =>const HomePage(),
         ),
-        // GetPage(name: '/edit_name', page: () => UpdateStoreName()),
+        GetPage(name: '/edit_name', page: () => const UpdateStoreName()),
         // GetPage(name: '/add_followers', page: () => AddFollowers()),
         GetPage(name: '/toggle_status', page: () => StoreStatus()),
         // GetPage(name: '/edit_follower_count', page: () => AddFollowerCount()),
