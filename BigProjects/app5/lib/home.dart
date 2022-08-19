@@ -41,7 +41,7 @@ class HomePage extends GetView<StoreController> {
                    Obx(() {
               return Flexible(fit: FlexFit.tight,child: Text(
                 controller.followerCount.value.toString(),
-                style:const TextStyle(fontSize: 22,fontWeight: FontWeight.bold),
+                style:const TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
               ),);
             }),
                 ],
