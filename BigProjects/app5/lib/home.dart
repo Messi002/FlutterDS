@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:app5/Controllers/store_controller.dart';
 import 'package:app5/Utils/main_card.dart';
@@ -19,8 +19,8 @@ class HomePage extends GetView<StoreController> {
         child: SingleChildScrollView(
             child: Column(
           children: <Widget>[
-            MainCard(title: 'Store Info'),
-           Column(
+            MainCard(title: 'Store Info',
+           body: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,6 +34,7 @@ class HomePage extends GetView<StoreController> {
             }),
                 ],
               ),
+              const SizedBox(height: 20.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -46,11 +47,13 @@ class HomePage extends GetView<StoreController> {
             }),
                 ],
               ),
+              const SizedBox(height: 20.0),
+
             ],
-           ),
+           ),),
           ],
-        )),
-      ),
+        ),
+      ),),
     );
   }
 }
