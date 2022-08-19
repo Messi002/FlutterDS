@@ -20,13 +20,17 @@ class HomePage extends GetView<StoreController> {
             child: Column(
           children: <Widget>[
             MainCard(title: 'Store Info'),
-            Obx(() {
+           Column(
+            children: [
+               Obx(() {
               return Flexible(child: Text(
                 controller.storeName.value.toString(),
                 style:const TextStyle(fontSize: 22,fontWeight: FontWeight.bold),
               ),
               fit: FlexFit.tight,);
-            }),
+            })
+            ],
+           ),
           ],
         )),
       ),
