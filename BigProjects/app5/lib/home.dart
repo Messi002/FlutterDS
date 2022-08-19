@@ -14,6 +14,7 @@ class HomePage extends GetView<StoreController> {
       appBar: AppBar(
         title: const Text("MIRStore"),
       ),
+      drawer: const SideDrawer(),
       body: Container(
         padding: const EdgeInsets.all(10),
         child: SingleChildScrollView(
@@ -55,47 +56,35 @@ class HomePage extends GetView<StoreController> {
                     const SizedBox(height: 20.0),
                     GetX<StoreController>(
                       builder: (sController) {
-                        return Container(
-                          child: Text(
-                            sController.storeStatus.value ? 'Open' : 'Closed',
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                                color: sController.storeStatus.value
-                                    ? Colors.green.shade700
-                                    : Colors.red,
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold),
-                          ),
+                        return Text(
+                          sController.storeStatus.value ? 'Open' : 'Closed',
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                              color: sController.storeStatus.value
+                                  ? Colors.green.shade700
+                                  : Colors.red,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold),
                         );
                       },
                     ),
                      const SizedBox(
                 height: 20.0,
               ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Follower Name:"),
-                    Obx(
-                    () => ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: controller.followerList.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8),
-                          child: Text(
-                            controller.followerList[index].toString(),
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                        );
-                      },
-                    ),
-                  )
-                  ],
-                ),
+              Text("Follower Name:"),
+              Obx(
+              () => ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: controller.followerList.length,
+                itemBuilder: (context, index) {
+                  return Text(
+                    controller.followerList[index].toString(),
+                    style: const TextStyle(fontSize: 16),
+                  );
+                },
               ),
+                ),
             ],
           ),
         ),
