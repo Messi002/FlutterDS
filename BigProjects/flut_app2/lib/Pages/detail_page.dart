@@ -60,6 +60,7 @@ class _DetailPageState extends State<DetailPage> {
                         topRight: Radius.circular(25)),
                   ),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,9 +107,12 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                       SizedBox(height: 25),
                       AppLargeText(
-                        text: 'People',
-                        color: Colors.black.withOpacity(0.8),
-                        size: 20,
+                          text: 'People',
+                          color: Colors.black.withOpacity(0.8),
+                          size: 20),
+                      AppText(
+                        text: 'Number of people in your group',
+                        color: AppColors.mainTextColor,
                       )
                     ],
                   ),
