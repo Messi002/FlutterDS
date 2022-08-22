@@ -67,9 +67,9 @@ final themeController = Get.put(ThemeController());
                 "Add followers",
                 style: TextStyle(
                   fontSize: 18.0,
-                  // color: Get.isDarkMode
-                  //     ? AppColors.spaceCadet
-                  //     : AppColors.spaceBlue,
+                  color: Get.isDarkMode
+                      ? AppColors.spaceCadet
+                      : AppColors.spaceBlue,
                 ),
               ),
               onTap: () => Get.offAndToNamed('/add_followers'),
@@ -79,9 +79,9 @@ final themeController = Get.put(ThemeController());
                 "Increment Followers",
                 style: TextStyle(
                   fontSize: 18.0,
-                  // color: Get.isDarkMode
-                  //     ? AppColors.spaceCadet
-                  //     : AppColors.spaceBlue,
+                  color: Get.isDarkMode
+                      ? AppColors.spaceCadet
+                      : AppColors.spaceBlue,
                 ),
               ),
               onTap: () => Get.offAndToNamed('/edit_follower_count'),
@@ -91,9 +91,9 @@ final themeController = Get.put(ThemeController());
                 "Toggle Store Status",
                 style: TextStyle(
                   fontSize: 18.0,
-                  // color: Get.isDarkMode
-                  //     ? AppColors.spaceCadet
-                  //     : AppColors.spaceBlue,
+                  color: Get.isDarkMode
+                      ? AppColors.spaceCadet
+                      : AppColors.spaceBlue,
                 ),
               ),
               onTap: () => Get.offAndToNamed('/toggle_status'),
@@ -103,9 +103,9 @@ final themeController = Get.put(ThemeController());
                 "Add Reviews",
                 style: TextStyle(
                   fontSize: 18.0,
-                  // color: Get.isDarkMode
-                  //     ? AppColors.spaceCadet
-                  //     : AppColors.spaceBlue,
+                  color: Get.isDarkMode
+                      ? AppColors.spaceCadet
+                      : AppColors.spaceBlue,
                 ),
               ),
               onTap: () => Get.offAndToNamed('/add_reviews'),

@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 class AppColors {
   // AppColors._();
   AppColors();
@@ -13,7 +15,7 @@ class AppColors {
 
   // Light Theme Colors
   static const Color babyPink = Color(0xFFFECEE9);
-  static const Color lavender = Color(0xFFEB9FEF);
+  static const Color lavender = Colors.blue;
   static const Color gunMetal = Color(0xFF545677);
   static const Color spaceBlue = Color(0xFF03254E);
   static const Color darkBlue = Color(0xFF011C27);
