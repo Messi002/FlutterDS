@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flut_app/constants.dart';
+import 'package:flut_app/utils/app_button.dart';
 import 'package:flut_app/utils/app_large_text.dart';
 import 'package:flut_app/utils/app_text.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -118,7 +119,7 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                       Wrap(
                         children: List.generate(5, (index) {
-                          return Container();
+                          return AppButton( color: Colors.black, bordercolor: AppColors.buttonBackground, bgcolor: bgcolor);
                         }),
                       )
                     ],

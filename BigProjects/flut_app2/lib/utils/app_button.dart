@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 class AppButton extends StatelessWidget {
   AppButton({
     super.key,
-    required this.widget, required this.color, required this.bordercolor, required this.bgcolor,
+    this.widget, required this.color, required this.bordercolor, required this.bgcolor,
   });
 
-  final Widget widget;
+  final Widget? widget;
   final Color color;
   final Color bordercolor;
   final Color bgcolor;
@@ -16,10 +16,14 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 60,
-      height: 60,
+      width: size,
+      height: size,
       decoration: BoxDecoration(
-          color: AppColors.buttonBackground,
+        border: Border.all(
+          width: 1.0,
+          color: bordercolor,
+        ),
+          color: bgcolor,
           borderRadius: BorderRadius.circular(15)),
       child: widget,
     );
