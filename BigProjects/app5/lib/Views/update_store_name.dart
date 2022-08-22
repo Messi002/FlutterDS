@@ -1,7 +1,6 @@
 import 'package:app5/Utils/input.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'dart:async';
 
 import '../Controllers/store_controller.dart';
 
@@ -30,7 +29,7 @@ class UpdateStoreName extends StatelessWidget {
             ElevatedButton.icon(
                 onPressed: () async{
                   storeController.updateStoreName(
-                      storeController.storeNameEditingController.text);
+                      storeController.storeNameEditingController.text.trim());
                  await Get.snackbar("Successful update!", "Done!",
                       duration: Duration(seconds: 5),
                       snackPosition: SnackPosition.BOTTOM,
