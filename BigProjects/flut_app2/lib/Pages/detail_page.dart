@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
+import 'package:flut_app/constants.dart';
+import 'package:flut_app/utils/app_large_text.dart';
+import 'package:flut_app/utils/app_text.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
@@ -45,13 +48,47 @@ class _DetailPageState extends State<DetailPage> {
                   ],
                 )),
             Positioned(
-                top: 330,
+                top: 280,
                 child: Container(
                   height: 500,
                   width: MediaQuery.of(context).size.width,
+                  padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
                   decoration: const BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
+                    color: Color.fromARGB(255, 250, 247, 247),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25)),
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          AppLargeText(text: "Yosemite"),
+                          AppLargeText(
+                            text: "\$ 250",
+                            color: AppColors.mainColor,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.location_on, color: AppColors.mainColor),
+                          AppText(
+                              text: "USA, California",
+                              color: AppColors.textColor1),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(children: [
+                        
+                      ],)
+                    ],
                   ),
                 )),
           ],
