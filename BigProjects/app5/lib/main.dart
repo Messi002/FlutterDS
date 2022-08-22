@@ -2,6 +2,7 @@
 
 import 'package:app5/Controllers/theme_controller.dart';
 import 'package:app5/store_bindings.dart';
+import 'package:app5/update_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/toggle_status', page: () => StoreStatus()),
         GetPage(name: '/edit_follower_count', page: () => AddFollowerCount()),
         // GetPage(name: '/add_reviews', page: () => AddReviews()),
-        // GetPage(name: '/update_menu', page: () => const UpdateMenu()),
+        // GetPage(name: '/update_menu', page: () => UpdateMenu()),
       ],
       home: HomePage(),
     );
