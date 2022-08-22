@@ -15,8 +15,9 @@ class AddFollowers extends StatelessWidget {
         title: const Text('Add Followers'),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 56.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Input(
               hintText: 'Enter Follower\s name...',
@@ -24,16 +25,17 @@ class AddFollowers extends StatelessWidget {
             ),
             ElevatedButton.icon(
                 onPressed: () {
-                  if (storeController.followerController.text.trim().length <
-                      0) {
-                    Get.snackbar("Info", "Name required...",snackPosition: SnackPosition.BOTTOM  );
+                  if (storeController.followerController.text.trim().isEmpty) {
+                    Get.snackbar("Info", "Name required...",
+                        snackPosition: SnackPosition.BOTTOM);
                   } else {
-                     storeController.addNewFollower(
-                      storeController.followerController.text.trim());
-                  Get.snackbar("Done",
-                      "${storeController.followerController.text} added successfully",
-                      showProgressIndicator: true);
-                  Get.toNamed("/");
+                    storeController.addNewFollower(
+                        storeController.followerController.text.trim());
+                    Get.snackbar("Done",
+                        "${storeController.followerController.text} added successfully",
+                        showProgressIndicator: true);
+                    storeController.followerController.clear();
+                    Get.toNamed("/");
                   }
                 },
                 icon: const Icon(Icons.person_add_alt_rounded),
