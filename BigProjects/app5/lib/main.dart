@@ -9,6 +9,7 @@ import 'Views/add_follower_count.dart';
 import 'Views/add_followers.dart';
 import 'Views/store_status.dart';
 import 'Views/update_store_name.dart';
+import 'app_theme.dart';
 import 'home.dart';
 
 void main() => runApp(const MyApp());
