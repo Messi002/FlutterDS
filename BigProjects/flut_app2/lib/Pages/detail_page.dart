@@ -93,17 +93,10 @@ class _DetailPageState extends State<DetailPage> {
                         children: [
                           Wrap(
                             children: List.generate(5, (index) {
-                              return InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    starIndex = index;
-                                  });
-                                },
-                                child: Icon(Icons.star,
-                                    color: index < 4
-                                        ? AppColors.starColor
-                                        : AppColors.textColor1),
-                              );
+                              return Icon(Icons.star,
+                                  color: index < 4
+                                      ? AppColors.starColor
+                                      : AppColors.textColor1);
                             }),
                           ),
                           SizedBox(
