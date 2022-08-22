@@ -110,9 +110,16 @@ class _DetailPageState extends State<DetailPage> {
                           text: 'People',
                           color: Colors.black.withOpacity(0.8),
                           size: 20),
+                      SizedBox(height: 5),
                       AppText(
                         text: 'Number of people in your group',
                         color: AppColors.mainTextColor,
+                        size: 13,
+                      ),
+                      Wrap(
+                        children: List.generate(5, (index) {
+                          return Container();
+                        }),
                       )
                     ],
                   ),
