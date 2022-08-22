@@ -85,9 +85,31 @@ class _DetailPageState extends State<DetailPage> {
                       SizedBox(
                         height: 20,
                       ),
-                      Row(children: [
-                        
-                      ],)
+                      Row(
+                        children: [
+                          Wrap(
+                            children: List.generate(5, (index) {
+                              return Icon(Icons.star,
+                                  color: index < 4
+                                      ? AppColors.starColor
+                                      : AppColors.textColor1);
+                            }),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          AppText(
+                            text: "(4.0)",
+                            color: AppColors.textColor1,
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 25),
+                      AppLargeText(
+                        text: 'People',
+                        color: Colors.black.withOpacity(0.8),
+                        size: 20,
+                      )
                     ],
                   ),
                 )),
