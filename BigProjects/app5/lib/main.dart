@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:app5/Controllers/theme_controller.dart';
 import 'package:app5/store_bindings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      theme: Themes.lightTheme,
+      darkTheme: Themes.darkTheme,
+      themeMode: ThemeController.theme,
       initialRoute: '/',
       initialBinding: StoreBinding(),
       debugShowCheckedModeBanner: false,
