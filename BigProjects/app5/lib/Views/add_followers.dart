@@ -39,7 +39,19 @@ class AddFollowers extends StatelessWidget {
                   }
                 },
                 icon: const Icon(Icons.person_add_alt_rounded),
-                label: const Text("Follower"))
+                label: const Text("Follower")),
+
+                 Obx(
+              () => ListView.builder(
+                shrinkWrap: true,
+                itemCount: storeController.followerList.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(storeController.followerList[index]),
+                  );
+                },
+              ),
+            )
           ],
         ),
       ),
