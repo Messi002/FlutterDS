@@ -1,7 +1,8 @@
 import 'dart:ui';
 
 class AppColors {
-  AppColors._();
+  // AppColors._();
+  AppColors();
 
   // Dark Theme colors
   static const Color darkGrey = Color(0xff303041);
