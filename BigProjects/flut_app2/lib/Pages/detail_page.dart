@@ -121,7 +121,7 @@ class _DetailPageState extends State<DetailPage> {
                       Wrap(
                         children: List.generate(5, (index) {
                           return Container(
-                            margin: const EdgeInsets.only(right: 10),
+                            margin: const EdgeInsets.only(right: 7),
                             child: AppButton(
                                 widget: AppText(
                                   text: (index + 1).toString(),
@@ -130,7 +130,7 @@ class _DetailPageState extends State<DetailPage> {
                                 color: Colors.black,
                                 bordercolor: AppColors.buttonBackground,
                                 bgcolor: AppColors.buttonBackground,
-                                size: 50),
+                                size: 45),
                           );
                         }),
                       )
