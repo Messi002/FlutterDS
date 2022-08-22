@@ -14,24 +14,32 @@ class AddFollowers extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Add Followers'),
       ),
-      body: Column(
-        children: <Widget>[
-          Input(
-            hintText: 'Enter Follower\s name...',
-            controller: storeController.followerController,
-          ),
-          ElevatedButton.icon(
-              onPressed: () {
-                storeController.addNewFollower(
-                    storeController.followerController.text.trim());
-                Get.snackbar("Done",
-                    "${storeController.followerController.text} added successfully",
-                    showProgressIndicator: true);
-                Get.toNamed("/add_followers");
-              },
-              icon: const Icon(Icons.person_add_alt_rounded),
-              label: const Text("Follower"))
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          children: <Widget>[
+            Input(
+              hintText: 'Enter Follower\s name...',
+              controller: storeController.followerController,
+            ),
+            ElevatedButton.icon(
+                onPressed: () {
+                  if (storeController.followerController.text.trim().length <
+                      0) {
+                    Get.snackbar("Info", "Name required...",snackPosition: SnackPosition.BOTTOM  );
+                  } else {
+                     storeController.addNewFollower(
+                      storeController.followerController.text.trim());
+                  Get.snackbar("Done",
+                      "${storeController.followerController.text} added successfully",
+                      showProgressIndicator: true);
+                  Get.toNamed("/");
+                  }
+                },
+                icon: const Icon(Icons.person_add_alt_rounded),
+                label: const Text("Follower"))
+          ],
+        ),
       ),
     );
   }

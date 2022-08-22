@@ -27,10 +27,10 @@ class UpdateStoreName extends StatelessWidget {
             ),
             SizedBox(height: 20),
             ElevatedButton.icon(
-                onPressed: () async{
+                onPressed: () {
                   storeController.updateStoreName(
                       storeController.storeNameEditingController.text.trim());
-                 await Get.snackbar("Successful update!", "Done!",
+                 Get.snackbar("Successful update!", "Done!",
                       duration: Duration(seconds: 5),
                       snackPosition: SnackPosition.BOTTOM,
                       showProgressIndicator: true);
