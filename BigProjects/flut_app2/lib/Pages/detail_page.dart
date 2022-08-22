@@ -44,13 +44,16 @@ class _DetailPageState extends State<DetailPage> {
                         ))
                   ],
                 )),
-
-            Positioned(child: Container(
-              decoration: BoxDecoration(
-                color: Colors.red,
-                
-              ),
-            )),
+            Positioned(
+                top: 330,
+                child: Container(
+                  height: 500,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: const BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
+                  ),
+                )),
           ],
         ),
       ),
