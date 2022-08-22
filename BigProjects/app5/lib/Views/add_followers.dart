@@ -24,9 +24,13 @@ class AddFollowers extends StatelessWidget {
               onPressed: () {
                 storeController.addNewFollower(
                     storeController.followerController.text.trim());
+                Get.snackbar("Done",
+                    "${storeController.followerController.text} added successfully",
+                    showProgressIndicator: true);
+                Get.toNamed("/add_followers");
               },
-              icon: Icon(Icons.person_add_alt_rounded),
-              label: Text("Follower"))
+              icon: const Icon(Icons.person_add_alt_rounded),
+              label: const Text("Follower"))
         ],
       ),
     );

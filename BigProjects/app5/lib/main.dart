@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'Views/add_follower_count.dart';
+import 'Views/add_followers.dart';
 import 'Views/store_status.dart';
 import 'Views/update_store_name.dart';
 import 'home.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           page: () => HomePage(),
         ),
         GetPage(name: '/edit_name', page: () => UpdateStoreName()),
-        // GetPage(name: '/add_followers', page: () => AddFollowers()),
+        GetPage(name: '/add_followers', page: () => AddFollowers()),
         GetPage(name: '/toggle_status', page: () => StoreStatus()),
         GetPage(name: '/edit_follower_count', page: () => AddFollowerCount()),
         // GetPage(name: '/add_reviews', page: () => AddReviews()),
