@@ -119,7 +119,7 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                       Wrap(
                         children: List.generate(5, (index) {
-                          return AppButton( color: Colors.black, bordercolor: AppColors.buttonBackground, bgcolor: bgcolor);
+                          return AppButton( color: Colors.black, bordercolor: AppColors.buttonBackground, bgcolor: AppColors.buttonBackground);
                         }),
                       )
                     ],
