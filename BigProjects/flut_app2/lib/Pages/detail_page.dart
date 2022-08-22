@@ -16,6 +16,8 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  int? selectedIndex;
+  int? starIndex;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,10 +93,17 @@ class _DetailPageState extends State<DetailPage> {
                         children: [
                           Wrap(
                             children: List.generate(5, (index) {
-                              return Icon(Icons.star,
-                                  color: index < 4
-                                      ? AppColors.starColor
-                                      : AppColors.textColor1);
+                              return InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    starIndex = index;
+                                  });
+                                },
+                                child: Icon(Icons.star,
+                                    color: index < 4
+                                        ? AppColors.starColor
+                                        : AppColors.textColor1),
+                              );
                             }),
                           ),
                           SizedBox(
@@ -120,17 +129,28 @@ class _DetailPageState extends State<DetailPage> {
                       SizedBox(height: 10),
                       Wrap(
                         children: List.generate(5, (index) {
-                          return Container(
-                            margin: const EdgeInsets.only(right: 7),
-                            child: AppButton(
-                                widget: AppText(
-                                  text: (index + 1).toString(),
+                          return InkWell(
+                            onTap: () {
+                              setState(() {
+                                selectedIndex = index;
+                              });
+                            },
+                            child: Container(
+                              margin: const EdgeInsets.only(right: 7),
+                              child: AppButton(
+                                  widget: AppText(
+                                    text: (index + 1).toString(),
+                                    color: selectedIndex == index
+                                        ? Colors.white
+                                        : Colors.black.withOpacity(0.8),
+                                  ),
                                   color: Colors.black,
-                                ),
-                                color: Colors.black,
-                                bordercolor: AppColors.buttonBackground,
-                                bgcolor: AppColors.buttonBackground,
-                                size: 45),
+                                  bordercolor: AppColors.buttonBackground,
+                                  bgcolor: selectedIndex == index
+                                      ? Color.fromARGB(239, 7, 7, 7)
+                                      : AppColors.buttonBackground,
+                                  size: 45),
+                            ),
                           );
                         }),
                       )
