@@ -12,17 +12,18 @@ import 'Views/update_store_name.dart';
 import 'app_theme.dart';
 import 'home.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp( MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+   MyApp({Key? key}) : super(key: key);
+   final themeController = Get.put(ThemeController());
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: Themes.lightTheme,
       darkTheme: Themes.darkTheme,
-      themeMode: ThemeController.theme,
+      themeMode: themeController.theme,
       initialRoute: '/',
       initialBinding: StoreBinding(),
       debugShowCheckedModeBanner: false,
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         // GetPage(name: '/add_reviews', page: () => AddReviews()),
         // GetPage(name: '/update_menu', page: () => const UpdateMenu()),
       ],
-      home:const HomePage(),
+      home: HomePage(),
     );
   }
 }

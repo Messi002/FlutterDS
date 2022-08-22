@@ -5,10 +5,14 @@ import 'package:app5/Utils/main_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'Controllers/theme_controller.dart';
 import 'Utils/side_drawer.dart';
+import 'app_theme.dart';
 
-class HomePage extends GetView<StoreController> {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  HomePage({Key? key}) : super(key: key);
+  final themeController = Get.put(ThemeController());
+  final controller = Get.put(StoreController());
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +21,19 @@ class HomePage extends GetView<StoreController> {
         title: Obx(() {
           return Text("${controller.storeName}");
         }),
+        actions: [
+          IconButton(
+              onPressed: () {
+                if (Get.isDarkMode) {
+                  themeController.changeTheme(Themes.lightTheme);
+                  themeController.saveTheme(false);
+                } else {
+                  themeController.changeTheme(Themes.darkTheme);
+                  themeController.saveTheme(true);
+                }
+              },
+              icon: Get.isDarkMode? Icon(Icons.light_mode_outlined) : Icon(Icons.dark_mode_outlined)  )
+        ],
       ),
       drawer: const SideDrawer(),
       body: Container(
