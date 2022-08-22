@@ -32,10 +32,12 @@ class HomePage extends StatelessWidget {
                   themeController.saveTheme(true);
                 }
               },
-              icon: Get.isDarkMode? Icon(Icons.light_mode_outlined) : Icon(Icons.dark_mode_outlined)  )
+              icon: Get.isDarkMode
+                  ? Icon(Icons.light_mode_outlined)
+                  : Icon(Icons.dark_mode_outlined))
         ],
       ),
-      drawer: const SideDrawer(),
+      drawer: SideDrawer(),
       body: Container(
         padding: const EdgeInsets.all(10),
         child: SingleChildScrollView(
