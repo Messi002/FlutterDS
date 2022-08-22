@@ -111,15 +111,27 @@ class _DetailPageState extends State<DetailPage> {
                           text: 'People',
                           color: Colors.black.withOpacity(0.8),
                           size: 20),
-                      SizedBox(height: 5),
+                      SizedBox(height: 3),
                       AppText(
                         text: 'Number of people in your group',
                         color: AppColors.mainTextColor,
                         size: 13,
                       ),
+                      SizedBox(height: 10),
                       Wrap(
                         children: List.generate(5, (index) {
-                          return AppButton( color: Colors.black, bordercolor: AppColors.buttonBackground, bgcolor: AppColors.buttonBackground);
+                          return Container(
+                            margin: const EdgeInsets.only(right: 10),
+                            child: AppButton(
+                                widget: AppText(
+                                  text: (index + 1).toString(),
+                                  color: Colors.black,
+                                ),
+                                color: Colors.black,
+                                bordercolor: AppColors.buttonBackground,
+                                bgcolor: AppColors.buttonBackground,
+                                size: 50),
+                          );
                         }),
                       )
                     ],

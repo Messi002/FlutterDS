@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class AppButton extends StatelessWidget {
   AppButton({
     super.key,
-    this.widget, required this.color, required this.bordercolor, required this.bgcolor,
+    this.widget, required this.color, required this.bordercolor, required this.bgcolor, this.size
   });
 
   final Widget? widget;
@@ -25,7 +25,7 @@ class AppButton extends StatelessWidget {
         ),
           color: bgcolor,
           borderRadius: BorderRadius.circular(15)),
-      child: widget,
+      child: Center(child: widget),
     );
   }
 }
