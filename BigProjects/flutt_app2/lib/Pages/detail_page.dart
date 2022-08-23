@@ -49,7 +49,7 @@ class _DetailPageState extends State<DetailPage> {
                   ],
                 )),
             Positioned(
-                top: 280,
+                top: 250,
                 child: Container(
                   height: 500,
                   width: MediaQuery.of(context).size.width,
@@ -145,10 +145,17 @@ class _DetailPageState extends State<DetailPage> {
                           );
                         }),
                       ),
-                      SizedBox(height:20),
-                      AppLargeText(text: 'Description',size: 20,color: Colors.black.withOpacity(0.8),),
-                      SizedBox(height:10),
-                      AppText(text: "You must go for a travel. Travelling helps geeeet rid of pressure. Go to the mountains to see the nature.", color: AppColors.mainTextColor),
+                      SizedBox(height: 20),
+                      AppLargeText(
+                        text: 'Description',
+                        size: 20,
+                        color: Colors.black.withOpacity(0.8),
+                      ),
+                      SizedBox(height: 6),
+                      AppText(
+                          text:
+                              "You must go for a travel. Travelling helps geeeet rid of pressure. Go to the mountains to see the nature.",
+                          color: AppColors.mainTextColor),
                     ],
                   ),
                 )),
