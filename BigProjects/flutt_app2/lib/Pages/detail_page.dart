@@ -157,8 +157,9 @@ class _DetailPageState extends State<DetailPage> {
                               "You must go for a travel. Travelling helps geeeet rid of pressure. Go to the mountains to see the nature.",
                           color: AppColors.mainTextColor,
                           size: 14),
+                      SizedBox(height: 11),
                       Positioned(
-                          bottom: 0,
+                          bottom: 10,
                           left: 20,
                           child: Row(
                             children: [
