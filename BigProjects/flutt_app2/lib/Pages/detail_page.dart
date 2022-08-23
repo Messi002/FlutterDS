@@ -171,7 +171,10 @@ class _DetailPageState extends State<DetailPage> {
                                   bordercolor: AppColors.textColor1,
                                   bgcolor: Colors.white,
                                   size: 48),
-                                  ResponButton(isRespon: true,)
+                              SizedBox(width: 20),
+                              ResponButton(
+                                isRespon: true,
+                              )
                             ],
                           )),
                     ],
