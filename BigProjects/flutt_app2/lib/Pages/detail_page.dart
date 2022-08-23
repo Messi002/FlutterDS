@@ -144,7 +144,9 @@ class _DetailPageState extends State<DetailPage> {
                             ),
                           );
                         }),
-                      )
+                      ),
+                      SizedBox(height:20),
+                      AppLargeText(text: 'Description',size: 20)
                     ],
                   ),
                 )),
