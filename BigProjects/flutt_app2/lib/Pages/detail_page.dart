@@ -147,6 +147,8 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                       SizedBox(height:20),
                       AppLargeText(text: 'Description',size: 20)
+                      SizedBox(height:10),
+                      AppText(text: , color: AppColors.mainTextColor),
                     ],
                   ),
                 )),
