@@ -115,7 +115,7 @@ class _DetailPageState extends State<DetailPage> {
                       AppText(
                         text: 'Number of people in your group',
                         color: AppColors.mainTextColor,
-                        size: 13,
+                        size: 14,
                       ),
                       SizedBox(height: 10),
                       Wrap(
@@ -155,14 +155,15 @@ class _DetailPageState extends State<DetailPage> {
                       AppText(
                           text:
                               "You must go for a travel. Travelling helps geeeet rid of pressure. Go to the mountains to see the nature.",
-                          color: AppColors.mainTextColor),
+                          color: AppColors.mainTextColor,
+                          size: 14),
                       Positioned(
-                          bottom: 20,
+                          bottom: 0,
                           left: 20,
                           child: Row(
                             children: [
                               AppButton(
-                                  widget: Icon(Icons.favorite),
+                                  widget: Icon(Icons.favorite_border),
                                   color: AppColors.textColor1,
                                   bordercolor: AppColors.textColor1,
                                   bgcolor: Colors.white,
