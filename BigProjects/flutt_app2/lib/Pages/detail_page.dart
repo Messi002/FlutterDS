@@ -161,7 +161,7 @@ class _DetailPageState extends State<DetailPage> {
                             left: 20,
                             child: Row(
                             children: [
-                                AppButton(color: AppColors.textColor1, bordercolor: AppColors.textColor1, bgcolor: Colors.white)
+                                AppButton(widget: Icon(Icons.favorite) ,color: AppColors.textColor1, bordercolor: AppColors.textColor1, bgcolor: Colors.white,size:60 )
                             ],
                           )),
                     ],
