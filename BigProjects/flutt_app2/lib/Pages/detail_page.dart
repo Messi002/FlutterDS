@@ -4,6 +4,7 @@ import 'package:flut_app/constants.dart';
 import 'package:flut_app/utils/app_button.dart';
 import 'package:flut_app/utils/app_large_text.dart';
 import 'package:flut_app/utils/app_text.dart';
+import 'package:flut_app/utils/responsive_button.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
@@ -161,6 +162,7 @@ class _DetailPageState extends State<DetailPage> {
                       Positioned(
                           bottom: 10,
                           left: 20,
+                          right: 20,
                           child: Row(
                             children: [
                               AppButton(
@@ -168,7 +170,8 @@ class _DetailPageState extends State<DetailPage> {
                                   color: AppColors.textColor1,
                                   bordercolor: AppColors.textColor1,
                                   bgcolor: Colors.white,
-                                  size: 48)
+                                  size: 48),
+                                  ResponButton(isRespon: true,)
                             ],
                           )),
                     ],

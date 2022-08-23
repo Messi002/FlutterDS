@@ -9,23 +9,26 @@ class ResponButton extends StatelessWidget {
   bool? isRespon;
   double? width;
 
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: width,
-      decoration: BoxDecoration(
-        color: AppColors.mainColor,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Image.asset(
-            "img/button-one.png",
-          ),
-        ],
+    return Flexible(
+      child: Container(
+        height: 50,
+        width: width,
+        decoration: BoxDecoration(
+          color: AppColors.mainColor,
+          borderRadius: BorderRadius.circular( 16),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Image.asset(
+              "img/button-one.png",
+            ),
+          ],
+        ),
       ),
     );
   }
