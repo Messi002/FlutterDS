@@ -5,7 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
 class ResponButton extends StatelessWidget {
-  ResponButton({Key? key, this.width, this.isRespon = false}) : super(key: key);
+  ResponButton({Key? key, this.width = 120, this.isRespon = false}) : super(key: key);
 
   bool? isRespon;
   double? width;
@@ -15,7 +15,7 @@ class ResponButton extends StatelessWidget {
     return Flexible(
       child: Container(
         height: 50,
-        width: width,
+        width: isRespon == true? double.maxFinite: width,
         decoration: BoxDecoration(
           color: AppColors.mainColor,
           borderRadius: BorderRadius.circular(16),
