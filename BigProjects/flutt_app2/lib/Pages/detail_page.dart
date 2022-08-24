@@ -1,11 +1,14 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flut_app/constants.dart';
+import 'package:flut_app/cubit/app_cubit_states.dart';
+import 'package:flut_app/cubit/app_cubits.dart';
 import 'package:flut_app/utils/app_button.dart';
 import 'package:flut_app/utils/app_large_text.dart';
 import 'package:flut_app/utils/app_text.dart';
 import 'package:flut_app/utils/responsive_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -19,7 +22,8 @@ class _DetailPageState extends State<DetailPage> {
   int? starIndex;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocBuilder<AppCubit, CubitState>(builder: (context,state){
+      return Scaffold(
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
@@ -42,7 +46,9 @@ class _DetailPageState extends State<DetailPage> {
                 child: Row(
                   children: [
                     const IconButton(
-                        onPressed: null,
+                        onPressed: () {
+                          BlocProvider.of<AppCubit>(context).goHome();
+                        },
                         icon: Icon(
                           Icons.menu,
                           color: Color.fromARGB(255, 230, 224, 224),
@@ -184,5 +190,6 @@ class _DetailPageState extends State<DetailPage> {
         ),
       ),
     );
+    }  );
   }
 }

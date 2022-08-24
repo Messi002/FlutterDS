@@ -93,6 +93,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
             Expanded(
               flex: 2,
+
               child: Container(
                 height: 250,
                 width: double.maxFinite,
@@ -103,6 +104,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     scrollDirection: Axis.horizontal,
                     itemCount: info.length,
                     itemBuilder: (BuildContext context, int index) {
+                                    //TODO: WRAP around gestutredector
+              //onTap(){ BlocProvider.of<AppCubits>(Context).detailPage(info[index])}
                       return Container(
                         margin: const EdgeInsets.only(top: 10, right: 15),
                         height: 250,

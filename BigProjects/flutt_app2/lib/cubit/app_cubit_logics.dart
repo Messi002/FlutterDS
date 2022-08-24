@@ -1,3 +1,4 @@
+import 'package:flut_app/Pages/detail_page.dart';
 import 'package:flut_app/Pages/home_page.dart';
 import 'package:flut_app/Pages/welcome_page.dart';
 import 'package:flut_app/cubit/app_cubit_states.dart';
@@ -25,6 +26,8 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
           return Center(child: CircularProgressIndicator());
         } if (state is LoadedState) {
           return HomePage();
+        }if (state is DetailState) {
+          return DetailPage();
         }else {
           return Container();
         }
