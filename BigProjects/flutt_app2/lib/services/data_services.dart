@@ -1,24 +1,22 @@
+import 'package:flut_app/Model/data_mode.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
 
 class DataServices {
   String baseUrl = "http://mark.bslmeiyu.com/api";
 
-  getInfo() async{
+  getInfo() async {
     var apiUrl = '/getplaces';
 
- return  http.Response res = await http.get(Uri.parse(baseUrl + apiUrl));
+    http.Response res = await http.get(Uri.parse(baseUrl + apiUrl));
 
- try{
-  if(res.statusCode == 200){
-
-    List<dynamic> list = json.decode(res.body);
-  }
-
-
- }catch(e){
-  print(e)
- }
+    try {
+      if (res.statusCode == 200) {
+        List<dynamic> list = json.decode(res.body);
+        return list.map((e) => DataModel.fromJson(e)).toList();
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 }
