@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, sized_box_for_whitespace, prefer_const_constructors
 
 import 'package:flut_app/constants.dart';
+import 'package:flut_app/cubit/app_cubits.dart';
 import 'package:flut_app/utils/app_large_text.dart';
 import 'package:flut_app/utils/app_text.dart';
 import 'package:flut_app/utils/responsive_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -66,8 +68,13 @@ class _WelcomeState extends State<Welcome> {
                         SizedBox(
                           height: 40,
                         ),
-                        ResponButton(
-                          width: 120,
+                        GestureDetector(
+                          onTap: () {
+                            BlocProvider.of<AppCubit>(context).getData();
+                          },
+                          child: ResponButton(
+                            width: 120,
+                          ),
                         ),
                       ],
                     ),
