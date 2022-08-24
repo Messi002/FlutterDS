@@ -12,7 +12,7 @@ class AppCubit extends Cubit<CubitState> {
     try {
       emit(LoadingState());
       places = await data.getInfo();
-      emit(LoadedState());
+      emit(LoadedState(places));
     } catch (e) {}
   }
 }

@@ -72,6 +72,7 @@ class _WelcomeState extends State<Welcome> {
                           onTap: () {
                             BlocProvider.of<AppCubit>(context).getData();
                           },
+                          //TODO: wrap with a row widget
                           child: ResponButton(
                             width: 120,
                           ),
