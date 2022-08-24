@@ -6,6 +6,8 @@ import 'package:flut_app/utils/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../cubit/app_cubit_states.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -23,8 +25,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
-    return Scaffold(body: BlocBuilder(builder: (context,state) {
-      return Column(
+    return Scaffold(body: BlocBuilder(builder: (context, state) {
+      if (state is LoadedState) {
+        return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
@@ -179,6 +182,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
         ],
       );
+      } else {
+        return Container();
+      }
     }));
   }
 }
