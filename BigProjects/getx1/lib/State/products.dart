@@ -27,4 +27,8 @@ class Products extends GetxController {
     final int index = _items.indexWhere((item) => item.id == id);
     _items[index].inWishList.value = true;
   }
+    void removeItem(int id) {
+    final int index = _items.indexWhere((item) => item.id == id);
+    _items[index].inWishList.value = false;
+  }
 }
