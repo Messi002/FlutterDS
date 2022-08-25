@@ -6,12 +6,23 @@ import 'package:app5/View/wish_list_screen.dart';
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
   final Products product = Get.put(Products());
-  var textTheme = Theme.of(context).textTheme;
   @override
   Widget build(BuildContext context) {
-  var textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      appBar: AppBar(title: const Text('MIR-Shop', style: textTheme.bodyText1,)),
+      appBar: AppBar(title: const Text('MIR-Shop',)),
+      body: Column(
+        children: [
+          const SizedBox(height: 20),
+          InkWell(
+            child: Container(
+              width: 300,
+              height: 80,
+              color: Colors.red,
+              alignment: Alignment.center,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
