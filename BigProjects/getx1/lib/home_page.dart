@@ -1,4 +1,4 @@
-import 'package:app5/counter_timer.dart';
+import 'package:app5/Controller/counter_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
