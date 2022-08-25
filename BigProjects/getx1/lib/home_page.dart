@@ -20,14 +20,29 @@ class _HomePageState extends State<HomePage> {
           children: [
             Text('Count Down Timer Using Getx '),
             GetBuilder<CounterState>(builder: (cont) {
-              return Text(cont.count.toString(), style: TextStyle(fontWeight: FontWeight.bold),);
+              return Text(
+                cont.count.toString(),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+              );
             }),
             SizedBox(height: 15),
             ElevatedButton(
                 onPressed: () {
                   counterstate.StartTimer();
                 },
-                child: Text('Start Timer'))
+                child: Text('Start Timer')),
+            SizedBox(height: 15),
+            ElevatedButton(
+                onPressed: () {
+                  counterstate.pause();
+                },
+                child: Text('Pause Timer')),
+            SizedBox(height: 15),
+            ElevatedButton(
+                onPressed: () {
+                  counterstate.StartTimer();
+                },
+                child: Text('Reset Timer')),
           ],
         ),
       ),
