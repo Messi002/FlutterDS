@@ -15,4 +15,8 @@ class Products extends GetxController {
   List<Item> get items {
     return [..._items];
   }
+
+  List<Item> get wishListItems {
+    return _items.where((item) => item.inWishList.value == true).toList();
+  }
 }
