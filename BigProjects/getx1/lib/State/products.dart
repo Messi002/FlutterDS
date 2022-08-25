@@ -17,7 +17,14 @@ class Products extends GetxController {
     return _items.toList();
   }
 
+  //This will return the proudcts that were added to wist list
   List<Item> get wishListItems {
     return _items.where((item) => item.inWishList.value == true).toList();
+  }
+
+  //Add item to wish list
+  void addItem(int id) {
+    final int index = _items.indexWhere((item) => item.id == id);
+    _items[index].inWishList.value = true;
   }
 }
