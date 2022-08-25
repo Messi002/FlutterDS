@@ -1,3 +1,4 @@
+import 'package:app5/counter_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,6 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final Controller counterstate = Get.put(CounterState());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
