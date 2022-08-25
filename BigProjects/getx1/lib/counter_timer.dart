@@ -24,8 +24,13 @@ class CounterState extends GetxController {
     update();
   }
 
+  void resume(){
+    _timer.
+  }
+
   void reset() {
     _timer.cancel();
-    count = 10;
+    count = 15;
+    update();
   }
 }

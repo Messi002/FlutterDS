@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 15),
             ElevatedButton(
                 onPressed: () {
-                  counterstate.StartTimer();
+                  counterstate.reset();
                 },
                 child: Text('Reset Timer')),
           ],
