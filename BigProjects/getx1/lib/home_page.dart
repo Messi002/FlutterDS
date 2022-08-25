@@ -16,11 +16,13 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Count Down Timer Using Getx '),
             GetBuilder<CounterState>(builder: (cont) {
-             return Text(cont.count.toString());
+              return Text(cont.count.toString(), style: TextStyle(fontWeight: FontWeight.bold),);
             }),
+            SizedBox(height: 15),
             ElevatedButton(
                 onPressed: () {
                   counterstate.StartTimer();
