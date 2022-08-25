@@ -1,10 +1,14 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:app5/Controller/counter_timer.dart';
+import 'package:app5/Controllers/theme_controller.dart';
+import 'package:app5/utils/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
+  HomePage({Key? key}) : super(key: key);
+  var themeController = Get.find<ThemeController>();
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -14,6 +18,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: MyAppBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -56,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
               );
             }),
-             ElevatedButton(
+            ElevatedButton(
                 onPressed: () {
                   counterstate.StartTimerObx();
                 },
@@ -67,9 +72,25 @@ class _HomePageState extends State<HomePage> {
                   counterstate.PauseObx();
                 },
                 child: Text('Pause Timer with Obx')),
+                SizedBox(height: 15),
+                ButtonWidget()
           ],
         ),
       ),
     );
   }
+}
+
+
+class MyAppBar extends StatelessWidget with PreferredSizeWidget{
+  const MyAppBar({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    
+  }
+  
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => const Size.fromHeight(65);
 }
