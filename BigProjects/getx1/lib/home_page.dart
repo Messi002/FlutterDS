@@ -100,9 +100,15 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
             builder: (_) {
               return IconButton(
                   onPressed: () {
-                    _.t
+                    
                   },
-                  icon: icon);
+                  icon: Icon(
+                  themeController.isDarkMode
+                      ? Icons.light_mode
+                      : Icons.dark_mode,
+                  color: iconTheme.color,
+                  size: iconTheme.size,
+                ));
             })
       ],
     );
