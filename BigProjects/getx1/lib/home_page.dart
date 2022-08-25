@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
-  var themeController = Get.find<ThemeController>();
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -72,8 +72,8 @@ class _HomePageState extends State<HomePage> {
                   counterstate.PauseObx();
                 },
                 child: Text('Pause Timer with Obx')),
-                SizedBox(height: 15),
-                ButtonWidget()
+            SizedBox(height: 15),
+            ButtonWidget()
           ],
         ),
       ),
@@ -81,15 +81,31 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-
-class MyAppBar extends StatelessWidget with PreferredSizeWidget{
-  const MyAppBar({Key? key}) : super(key: key);
-
+class MyAppBar extends StatelessWidget with PreferredSizeWidget {
+  MyAppBar({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
-    
+    var themeController = Get.find<ThemeController>();
+    var textTheme = Theme.of(context).textTheme;
+    return AppBar(
+      title: Text("Timer", style: textTheme.headline1),
+      backgroundColor: Colors.transparent,
+      actions: [
+        GetBuilder<ThemeController>(
+            id: 1,
+            init: ThemeController(),
+            builder: (s) {
+              return IconButton(
+                  onPressed: () {
+                    
+                  },
+                  icon: icon);
+            })
+      ],
+    );
   }
-  
+
   @override
   // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(65);
