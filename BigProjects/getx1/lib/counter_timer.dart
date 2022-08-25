@@ -12,7 +12,20 @@ class CounterState extends GetxController {
       if (count > 0) {
         count--;
         update();
+      } else {
+        _timer.cancel();
+        update();
       }
     });
+  }
+
+  void pause() {
+    _timer.cancel();
+    update();
+  }
+
+  void reset() {
+    _timer.cancel();
+    count = 10;
   }
 }
