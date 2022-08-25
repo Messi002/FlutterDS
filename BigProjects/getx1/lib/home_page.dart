@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final Controller counterstate = Get.put(CounterState());
+  final CounterState counterstate = Get.put(CounterState());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,8 +18,14 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             Text('Count Down Timer Using Getx '),
-            Text(''),
-            ElevatedButton(onPressed: null, child: Text('Start Timer'))
+            GetBuilder<CounterState>(builder: (cont) {
+             return Text(cont.count.toString());
+            }),
+            ElevatedButton(
+                onPressed: () {
+                  counterstate.StartTimer();
+                },
+                child: Text('Start Timer'))
           ],
         ),
       ),
