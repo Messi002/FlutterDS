@@ -103,11 +103,11 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
                     
                   },
                   icon: Icon(
-                  themeController.isDarkMode
+                  Get.isDarkMode
                       ? Icons.light_mode
                       : Icons.dark_mode,
-                  color: iconTheme.color,
-                  size: iconTheme.size,
+                  // color: iconTheme.color,
+                  // size: iconTheme.size,
                 ));
             })
       ],
