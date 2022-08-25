@@ -13,7 +13,8 @@ class Products extends GetxController {
   ).obs;
 
   List<Item> get items {
-    return [..._items];
+    //TODO: return [..._items];
+    return _items.toList();
   }
 
   List<Item> get wishListItems {
