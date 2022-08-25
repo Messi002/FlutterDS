@@ -17,7 +17,6 @@ class _HomePageState extends State<HomePage> {
   var themeController = Get.find<ThemeController>();
   final CounterState counterstate = Get.put(CounterState());
   @override
-  
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
@@ -85,7 +84,7 @@ class _HomePageState extends State<HomePage> {
 
 class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   MyAppBar({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     var themeController = Get.find<ThemeController>();
@@ -97,11 +96,11 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
         GetBuilder<ThemeController>(
             id: 1,
             init: ThemeController(),
-            initState: (_){},
+            initState: (_) {},
             builder: (_) {
               return IconButton(
                   onPressed: () {
-                    themeController.th
+                    _.t
                   },
                   icon: icon);
             })

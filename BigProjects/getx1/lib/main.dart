@@ -4,22 +4,19 @@ import 'package:app5/Controllers/theme_controller.dart';
 import 'package:app5/utils/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'bindings.dart';
 import 'home_page.dart';
-
 
 void main() => runApp(MyApp());
 
-
 class MyApp extends StatelessWidget {
-  const  MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+  final themeController = Get.put(ThemeController());
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialBinding: MyBindings(),
-      theme:  MyThemes.lightTheme,
+      theme: MyThemes.lightTheme,
       darkTheme: MyThemes.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: themeController.theme,
       title: 'Demo',
       home: HomePage(),
     );
