@@ -4,16 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CounterState extends GetxController {
-  var count = 15;
+  int count = 30;
+  final count1 = 15.obs;
   late Timer _timer;
+
+  void StartTimerObx() {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (count > 0) {
+        count1( count1.value - 1);
+      }
+    });
+  }
 
   void StartTimer() {
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (count > 0) {
         count--;
-        update();
-      } else {
-        _timer.cancel();
         update();
       }
     });
@@ -24,13 +30,18 @@ class CounterState extends GetxController {
     update();
   }
 
-  void resume(){
-    _timer.
+  void resume() {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (count > 0) {
+        count--;
+        update();
+      }
+    });
   }
 
   void reset() {
     _timer.cancel();
-    count = 15;
+    count = 30;
     update();
   }
 }

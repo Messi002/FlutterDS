@@ -32,6 +32,12 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: Text('Start Timer')),
             SizedBox(height: 15),
+             ElevatedButton(
+                onPressed: () {
+                  counterstate.resume();
+                },
+                child: Text('Resume Timer')),
+            SizedBox(height: 15),
             ElevatedButton(
                 onPressed: () {
                   counterstate.pause();
