@@ -48,7 +48,8 @@ final themeController = Get.put(ThemeController());
               },
               icon: Get.isDarkMode
                   ? Icon(Icons.light_mode_outlined)
-                  : Icon(Icons.dark_mode_outlined)),
+                  : Icon(Icons.dark_mode_outlined)
+                  ),
             ),
             ListTile(
               title: Text(

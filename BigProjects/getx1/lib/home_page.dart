@@ -16,22 +16,45 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final CounterState counterstate = Get.put(CounterState());
-  
+  final themeController = Get.put(ThemeController());
+
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: MyAppBar(),
+      drawer: Drawer(
+        child: ListTile(
+          title: Text(
+            "Change App Theme Mode",
+            style: TextStyle(
+              fontSize: 18.0,
+              color: Get.isDarkMode ? Colors.white : Colors.black,
+            ),
+          ),
+          trailing: IconButton(
+              onPressed: () {
+                if (!Get.isDarkMode) {
+                  themeController.changeTheme(MyThemes.lightTheme);
+                  themeController.saveTheme(false);
+                } else {
+                  themeController.changeTheme(MyThemes.darkTheme);
+                  themeController.saveTheme(true);
+                }
+                print('drawer button pressed');
+              },
+              icon: Get.isDarkMode
+                  ? Icon(Icons.light_mode_outlined)
+                  : Icon(Icons.dark_mode_outlined)),
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text('Count Down Timer Using Getx ',style: textTheme.headline1),
+          Text('Count Down Timer Using Getx ', style: TextStyle(fontSize: 20)),
           GetBuilder<CounterState>(builder: (cont) {
-            return Text(
-              cont.count.toString(),
-              style: textTheme.headline1
-            );
+            return Text(cont.count.toString(), style: TextStyle(fontSize: 20));
           }),
           SizedBox(height: 15),
           ElevatedButton(
@@ -59,10 +82,8 @@ class _HomePageState extends State<HomePage> {
               child: Text('Reset Timer')),
           SizedBox(height: 15),
           Obx(() {
-            return Text(
-              counterstate.count1.value.toString(),
-              style: textTheme.headline1
-            );
+            return Text(counterstate.count1.value.toString(),
+                style: textTheme.headline2);
           }),
           ElevatedButton(
               onPressed: () {
@@ -90,7 +111,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
     return AppBar(
-      title: Text("Timer", style: textTheme.headline1),
+      title: Text("Timer", style: TextStyle(fontSize: 20)),
       backgroundColor: Colors.transparent,
       actions: [
         IconButton(
@@ -103,11 +124,12 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
                 themeController.saveTheme(true);
               }
             },
-            icon: Icon(
-              Get.isDarkMode ? Icons.light_mode : Icons.dark_mode,
-              // color: iconTheme.color,
-              // size: iconTheme.size,
-            ))
+            icon: Get.isDarkMode
+                ? Icon(Icons.light_mode_outlined)
+                : Icon(Icons.dark_mode_outlined)
+            // color: iconTheme.color,
+            // size: iconTheme.size,
+            )
       ],
     );
   }
