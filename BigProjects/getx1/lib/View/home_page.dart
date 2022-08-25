@@ -14,13 +14,24 @@ class HomePage extends StatelessWidget {
         children: [
           const SizedBox(height: 20),
           InkWell(
+            onTap: (){
+              //TODO: here
+              Get.to()
+            },
             child: Container(
               width: 300,
               height: 80,
               color: Colors.red,
               alignment: Alignment.center,
+              child: Obx(() => Text('Wish List: ${product.wishListItems.length}',style: TextStyle(fontSize: 28,color: Colors.white),)),
             ),
           ),
+          const SizedBox(height: 20),
+          Expanded(child: ListView.builder(
+            itemCount: product.items.length,
+            itemBuilder: (context, index){
+              return Card();
+            } ,),  ),
         ],
       ),
     );
