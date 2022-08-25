@@ -30,7 +30,18 @@ class HomePage extends StatelessWidget {
           Expanded(child: ListView.builder(
             itemCount: product.items.length,
             itemBuilder: (context, index){
-              return Card();
+              final pdt = product.items[index];
+              return Card(
+                key: ValueKey(pdt.id),
+                margin: const EdgeInsets.all(5),
+                child: ListTile(
+                  title: Text(pdt.name),
+                  subtitle: Text("\$${pdt.price}"),
+                  trailing: Obx(() => IconButton(onPressed: (){
+                    
+                  }, icon: Icon(Icons.favorite,color: !pdt.inWishList.value? Colors.white:Colors.red,))),
+                ),
+              );
             } ,),  ),
         ],
       ),
