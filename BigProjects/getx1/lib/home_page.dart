@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
           ),
           trailing: IconButton(
               onPressed: () {
-                if (!Get.isDarkMode) {
+                if (Get.isDarkMode) {
                   themeController.changeTheme(MyThemes.lightTheme);
                   themeController.saveTheme(false);
                 } else {
@@ -112,7 +112,6 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
     var textTheme = Theme.of(context).textTheme;
     return AppBar(
       title: Text("Timer", style: TextStyle(fontSize: 20)),
-      backgroundColor: Colors.transparent,
       actions: [
         IconButton(
             onPressed: () {
