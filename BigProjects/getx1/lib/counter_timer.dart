@@ -11,9 +11,13 @@ class CounterState extends GetxController {
   void StartTimerObx() {
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (count > 0) {
-        count1( count1.value - 1);
+        count1(count1.value--);
       }
     });
+  }
+
+  void PauseObx() {
+    _timer.cancel();
   }
 
   void StartTimer() {

@@ -49,10 +49,24 @@ class _HomePageState extends State<HomePage> {
                   counterstate.reset();
                 },
                 child: Text('Reset Timer')),
-                SizedBox(height: 15),
+            SizedBox(height: 15),
             Obx(() {
-              return Text(counterstate.count1.value.toString());
+              return Text(
+                counterstate.count1.value.toString(),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+              );
             }),
+             ElevatedButton(
+                onPressed: () {
+                  counterstate.StartTimerObx();
+                },
+                child: Text('Start Timer with Obx')),
+            SizedBox(height: 15),
+            ElevatedButton(
+                onPressed: () {
+                  counterstate.PauseObx();
+                },
+                child: Text('Pause Timer with Obx')),
           ],
         ),
       ),
