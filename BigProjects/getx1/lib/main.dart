@@ -4,6 +4,7 @@ import 'package:app5/Controllers/theme_controller.dart';
 import 'package:app5/utils/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'bindings.dart';
 import 'home_page.dart';
 
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialBinding: MyBindings(),
       theme:  MyThemes.lightTheme,
       darkTheme: MyThemes.darkTheme,
       themeMode: ThemeMode.light,
