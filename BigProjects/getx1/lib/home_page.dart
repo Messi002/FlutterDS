@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: Text('Start Timer')),
             SizedBox(height: 15),
-             ElevatedButton(
+            ElevatedButton(
                 onPressed: () {
                   counterstate.resume();
                 },
@@ -49,6 +49,10 @@ class _HomePageState extends State<HomePage> {
                   counterstate.reset();
                 },
                 child: Text('Reset Timer')),
+                SizedBox(height: 15),
+            Obx(() {
+              return Text(counterstate.count1.value.toString());
+            }),
           ],
         ),
       ),
