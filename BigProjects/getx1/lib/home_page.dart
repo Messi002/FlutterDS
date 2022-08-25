@@ -5,6 +5,7 @@ import 'package:app5/Controller/counter_timer.dart';
 import 'package:app5/utils/buttons.dart';
 import 'package:app5/utils/themes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
@@ -112,6 +113,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
     var textTheme = Theme.of(context).textTheme;
     return AppBar(
       title: Text("Timer", style: TextStyle(fontSize: 20)),
+      systemOverlayStyle: Get.isDarkMode ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
       actions: [
         IconButton(
             onPressed: () {

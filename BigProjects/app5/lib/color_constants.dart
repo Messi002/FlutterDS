@@ -20,3 +20,11 @@ class AppColors {
   static const Color spaceBlue = Color(0xFF03254E);
   static const Color darkBlue = Color(0xFF011C27);
 }
+
+
+
+//a simpler way to do theme chaning....
+  // static final darkTheme = ThemeData.dark().copyWith(
+  //   iconTheme: const IconThemeData(color: Colors.white )
+  
+  // );
