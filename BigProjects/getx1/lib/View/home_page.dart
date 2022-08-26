@@ -18,8 +18,7 @@ class HomePage extends StatelessWidget {
           const SizedBox(height: 20),
           InkWell(
             onTap: () {
-              //TODO: here
-              // Get.to()
+              Get.to(WishList());
             },
             child: Container(
               width: 300,
