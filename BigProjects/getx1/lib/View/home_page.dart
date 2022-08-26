@@ -16,10 +16,8 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(height: 20),
-          InkWell(
-            onTap: () {
-              Get.to(WishList());
-            },
+          GestureDetector(
+            onTap: () => Get.to( () => WishList()),
             child: Container(
               width: 300,
               height: 80,
