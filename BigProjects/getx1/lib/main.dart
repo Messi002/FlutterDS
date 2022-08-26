@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-
 import 'package:app5/View/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,11 +15,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData().copyWith(
         textTheme: TextTheme(
           bodyText1: TextStyle(
-            fontWeight: FontWeight.bold,
-          )
+            fontSize: 16,
+            color: Colors.black,
+          ),
+          bodyText2: TextStyle(
+            color: Colors.black,
+          ),
         ),
       ),
-         title: 'Demo',
+      title: 'Demo',
       home: HomePage(),
     );
   }

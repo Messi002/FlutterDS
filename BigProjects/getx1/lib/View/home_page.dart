@@ -9,40 +9,61 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('MIR-Shop',)),
+      appBar: AppBar(
+          title: const Text(
+        'MIR-Shop',
+      )),
       body: Column(
         children: [
           const SizedBox(height: 20),
           InkWell(
-            onTap: (){
+            onTap: () {
               //TODO: here
-              Get.to()
+              // Get.to()
             },
             child: Container(
               width: 300,
               height: 80,
               color: Colors.red,
               alignment: Alignment.center,
-              child: Obx(() => Text('Wish List: ${product.wishListItems.length}',style: TextStyle(fontSize: 28,color: Colors.white),)),
+              child: Obx(() => Text(
+                    'Wish List: ${product.wishListItems.length}',
+                    style: TextStyle(fontSize: 28, color: Colors.white),
+                  )),
             ),
           ),
           const SizedBox(height: 20),
-          Expanded(child: ListView.builder(
-            itemCount: product.items.length,
-            itemBuilder: (context, index){
-              final pdt = product.items[index];
-              return Card(
-                key: ValueKey(pdt.id),
-                margin: const EdgeInsets.all(5),
-                child: ListTile(
-                  title: Text(pdt.name),
-                  subtitle: Text("\$${pdt.price}"),
-                  trailing: Obx(() => IconButton(onPressed: (){
-                    
-                  }, icon: Icon(Icons.favorite,color: !pdt.inWishList.value? Colors.white:Colors.red,))),
-                ),
-              );
-            } ,),  ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: product.items.length,
+              itemBuilder: (context, index) {
+                final pdt = product.items[index];
+                return Card(
+                  key: ValueKey(pdt.id),
+                  margin: const EdgeInsets.all(5),
+                  child: ListTile(
+                    title: Text(
+                      pdt.name,
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                    subtitle: Text("\$${pdt.price}"),
+                    trailing: Obx(() => IconButton(
+                        onPressed: () {
+                          if (!pdt.inWishList.value) {
+                            
+                          } else {}
+                        },
+                        icon: Icon(
+                          Icons.favorite_border,
+                          color: !pdt.inWishList.value
+                              ? Colors.black54
+                              : Colors.red,
+                        ))),
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
