@@ -46,19 +46,24 @@ class HomePage extends StatelessWidget {
                       pdt.name,
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
-                    subtitle: Text("\$${pdt.price}"),
+                    subtitle: Text("\$${pdt.price.toStringAsFixed(2)}"),
                     trailing: Obx(() => IconButton(
                         onPressed: () {
                           if (!pdt.inWishList.value) {
-                            
-                          } else {}
+                            product.addItem(pdt.id);
+                          } else {
+                            product.removeItem(pdt.id);
+                          }
                         },
-                        icon: Icon(
-                          Icons.favorite_border,
-                          color: !pdt.inWishList.value
-                              ? Colors.black54
-                              : Colors.red,
-                        ))),
+                        icon: pdt.inWishList.value
+                            ? Icon(
+                                Icons.favorite,
+                                color: Colors.red,
+                              )
+                            : Icon(
+                                Icons.favorite_border,
+                                color: Colors.grey,
+                              ))),
                   ),
                 );
               },
