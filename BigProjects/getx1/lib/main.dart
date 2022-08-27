@@ -8,7 +8,14 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
-  @o
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData().copyWith(
+        textTheme: TextTheme(
+          bodyText1: TextStyle(
+            fontSize: 16,
             color: Colors.black,
           ),
           bodyText2: TextStyle(
