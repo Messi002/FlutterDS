@@ -3,7 +3,14 @@ import 'package:get/get.dart';
 import 'dart:math' show Random;
 
 class Products extends GetxController {
-  fina
+  final RxList<Item> _items = List.generate(
+    101,
+    (index) => Item(
+        id: index,
+        name: 'Product $index',
+        price: Random().nextDouble() * 100,
+        inWishList: false.obs),
+  ).obs;
 
   List<Item> get items {
     //TODO: return [..._items];
