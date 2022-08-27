@@ -1,12 +1,4 @@
-import 'package:app5/Utils/input.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../Controllers/store_controller.dart';
-
-class UpdateStoreName extends StatelessWidget {
-  UpdateStoreName({Key? key}) : super(key: key);
-  final storeController = Get.find<StoreController>();
+ind<StoreController>();
 
   @override
   Widget build(BuildContext context) {
