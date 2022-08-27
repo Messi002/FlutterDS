@@ -21,10 +21,4 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(
             color: Colors.black,
           ),
-        ),
-      ),
-      title: 'Demo',
-      home: HomePage(),
-    );
-  }
-}
+ 
