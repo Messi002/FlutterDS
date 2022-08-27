@@ -17,17 +17,7 @@ class UpdateStoreName extends StatelessWidget {
         child: Column(
           children: [
             const Text(
-              "Enter Store Name",
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 16),
-            Input(
-              hintText: 'store name',
-              controller: storeController.storeNameEditingController,
-            ),
-            SizedBox(height: 20),
-            ElevatedButton.icon(
-                onPressed: () {
+        
                   storeController.updateStoreName(
                       storeController.storeNameEditingController.text.trim());
                  Get.snackbar("Successful update!", "Done!",
