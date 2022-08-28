@@ -111,18 +111,7 @@ final themeController = Get.put(ThemeController());
               ),
               onTap: () => Get.offAndToNamed('/add_reviews'),
             ),
-             ListTile(
-              title: Text(
-                "Menu update",
-                style: TextStyle(
-                  fontSize: 18.0,
-                  color: Get.isDarkMode
-                      ? AppColors.spaceCadet
-                      : AppColors.spaceBlue,
-                ),
-              ),
-              onTap: () => Get.offAndToNamed('/update_menu'),
-            ),
+     
         ],
       ),
     );
