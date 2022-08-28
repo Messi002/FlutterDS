@@ -47,17 +47,7 @@ class UpdateMenu extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text("Name"),
-               ListTile(
-                title: Text("Name"),
-                trailing:  Obx( (){
-                  return Text("${storeController.storeNameEditingController.text.trim()}");
-                }),
-               ),
-               
-                SizedBox(height: 16),
+        ght: 16),
                 Text("Color"),
                 SizedBox(height: 16),
                 Text("Location"),
