@@ -10,20 +10,7 @@ class AddFollowers extends StatelessWidget {
   final storeController = Get.find<StoreController>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Add Followers'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 56.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Input(
-              hintText: 'Enter Follower\s name...',
-              controller: storeController.followerController,
-            ),
-            ElevatedButton.icon(
+
                 onPressed: () {
                   if (storeController.followerController.text.trim().isEmpty) {
                     Get.snackbar("Info", "Name required...",
