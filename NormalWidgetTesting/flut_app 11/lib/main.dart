@@ -70,7 +70,10 @@ class AnimatedLogo extends AnimatedWidget {
     return Center(
       child: Opacity(opacity: _opacityTween.evaluate(animation),
   child: Container(
-    margin: const Edgeeeeeee,
+    margin: const EdgeInsets.symmetric(vertical: 10),
+    height: _sizeTween.evaluate(animation),
+    width: _sizeTween.evaluate(animation),
+    child: const FlutterLogo(),
   ),      
       ),
     );
