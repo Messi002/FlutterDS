@@ -15,22 +15,31 @@
 //   }
 // }
 
-class Square extends Shape {}
+// class Square extends Shape {}
 
-class Circle extends Shape {
-  Circle();
-  void PrintFunc() => print('This is a circle passed');
+// class Circle extends Shape {
+//   Circle();
+//   void PrintFunc() => print('This is a circle passed');
+// }
+
+// class Shape {
+//   Shape();
+//   factory Shape.fromTypeName(String typeName) {
+//     if (typeName == 'square') return Square();
+//     if (typeName == 'circle') return Circle();
+//     throw ArgumentError('Unrecognized $typeName');
+//   }
+// }
+
+// void main(List<String> args) {
+//   Shape.fromTypeName('rectangle');
+// }
+
+Future<String> createOrderMessage() async{
+  var order =await fetchUserOrder();
+  return 'Your order is something like $order';
 }
 
-class Shape {
-  Shape();
-  factory Shape.fromTypeName(String typeName) {
-    if (typeName == 'square') return Square();
-    if (typeName == 'circle') return Circle();
-    throw ArgumentError('Unrecognized $typeName');
-  }
-}
-
-void main(List<String> args) {
-  Shape.fromTypeName('rectangle');
+Future<String> fetchUserOrder() async{
+    
 }
