@@ -6,5 +6,7 @@ void main(List<String> args) {
   print(test);
 
   var evenNum = iterables.where((elt) => elt.isEven);
-  print(evenNum);
+  for (var num in evenNum) {
+    print('$num is even');
+  }
 }
