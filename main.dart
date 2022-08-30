@@ -37,7 +37,7 @@
 
 Future<String> createOrderMessage() async {
   var order = await fetchUserOrder();
-  return 'Your order is something like $order';
+  return 'Your order is $order';
 }
 
 Future<String> fetchUserOrder() {
@@ -47,4 +47,5 @@ Future<String> fetchUserOrder() {
 void main(List<String> args) async {
   print('Fetching User order');
   print(await createOrderMessage());
+  print('Thank You for using our services');
 }
