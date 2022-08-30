@@ -50,3 +50,23 @@
 //   print(await createOrderMessage());
 //   print('Thank You for using our services');
 // }
+
+Future<int> sumStream(Stream<int> stream) async {
+  var sum = 0;
+  await for (final val in stream) {
+    sum += val;
+  }
+  return sum;
+}
+
+Stream<int> countStream(int numb) async* {
+  for (var i = 1; i <= numb; i++) {
+    yield i;
+  }
+}
+
+void main(List<String> args) async {
+  var stream = countStream(10);
+  var sum = await sumStream(stream);
+  print(sum);
+}
