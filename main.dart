@@ -35,11 +35,16 @@
 //   Shape.fromTypeName('rectangle');
 // }
 
-Future<String> createOrderMessage() async{
-  var order =await fetchUserOrder();
+Future<String> createOrderMessage() async {
+  var order = await fetchUserOrder();
   return 'Your order is something like $order';
 }
 
-Future<String> fetchUserOrder() async{
-    
+Future<String> fetchUserOrder() {
+  return Future.delayed(Duration(seconds: 3), () => 'Fufu & Eru');
+}
+
+void main(List<String> args) async {
+  print('Fetching User order');
+  print(await createOrderMessage());
 }
