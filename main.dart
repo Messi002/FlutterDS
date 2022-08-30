@@ -4,4 +4,7 @@ void main(List<String> args) {
 
   bool test = iterables.every((element) => element < 3);
   print(test);
+
+  var evenNum = iterables.where((elt) => elt.isEven);
+  print(evenNum);
 }
