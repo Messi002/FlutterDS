@@ -26,10 +26,20 @@ class _GetxPostPageState extends State<GetxPostPage> {
         title: const Text('Getx Post'),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:8.0),
+        padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
         child: Column(
           children: [
+            TextField(
+              controller: titleController,
+              decoration: InputDecoration(hintText: 'Enter title'),
+            ),
+            TextField(
+              controller: messageController,
+              decoration: InputDecoration(hintText: 'Enter message'),
+            ),
+            SizedBox(height: 20),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton.icon(
                     onPressed: null,
@@ -41,14 +51,11 @@ class _GetxPostPageState extends State<GetxPostPage> {
                     label: Text('GET'))
               ],
             ),
-            TextField(
-              controller: titleController,
-              decoration: InputDecoration(hintText: 'Enter title'),
-            ),
-            TextField(
-              controller: messageController,
-              decoration: InputDecoration(hintText: 'Enter message'),
-            ),
+            ListView.builder(itemBuilder: ((context, index) {
+              return ListTile(
+                
+              );
+            }))
           ],
         ),
       ),
