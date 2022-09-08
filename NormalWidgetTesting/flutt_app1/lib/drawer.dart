@@ -6,7 +6,15 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      
+      child: ListView(
+        children: [
+          DrawerHeader(child: Text("Network Request App")),
+          ListTile(
+           title: Text('Text1'),
+           
+          ),
+        ],
+      ),
     );
   }
 }
