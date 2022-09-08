@@ -19,7 +19,7 @@ class MyDrawer extends StatelessWidget {
            onTap: () => Get.offAndToNamed(ImagePage.id),
           ),
            ListTile(
-           title: Text('Fetch Images'),
+           title: Text('GextDrawer'),
            onTap: () => Get.offAndToNamed(GetxPostPage.id),
           ),
         ],
