@@ -2,13 +2,15 @@
 
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math' show Random;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
 class GetxPostPage extends StatefulWidget {
-  const GetxPostPage({Key? key}) : super(key: key);
+  GetxPostPage({Key? key}) : super(key: key);
   static const String id = '/getxPost';
 
   @override
@@ -18,6 +20,27 @@ class GetxPostPage extends StatefulWidget {
 class _GetxPostPageState extends State<GetxPostPage> {
   var titleController = TextEditingController();
   var messageController = TextEditingController();
+  var _connect = GetConnect();
+  final apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+  Future<void> sendGetRequest() async {
+    try {
+    final response = await _connect.get("$apiUrl${5}");
+      if (response.statusCode == 200) print(response.body);
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future<void> postGetRequest() async {
+
+
+    try {
+      
+    } catch (e) {
+      
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +75,7 @@ class _GetxPostPageState extends State<GetxPostPage> {
               ],
             ),
             ListView.builder(itemBuilder: ((context, index) {
-              return ListTile(
-                
-              );
+              return ListTile();
             }))
           ],
         ),
