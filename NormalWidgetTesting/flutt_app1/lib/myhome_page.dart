@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
-  static const String id = '';
+  static const String id = 'MyHomePage';
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();

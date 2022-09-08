@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flut_app/myhome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,7 +18,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      initialRoute: MyHomePage.id,
+      getPages: [
+        GetPage(name: MyHomePage.id, page: () => MyHomePage()),
+      ],
     );
   }
 }
