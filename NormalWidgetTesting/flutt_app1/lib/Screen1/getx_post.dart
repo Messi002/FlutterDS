@@ -16,24 +16,24 @@ class GetxPostPage extends StatefulWidget {
 }
 
 class _GetxPostPageState extends State<GetxPostPage> {
-  // var postLoad = sendGetRequest;
+   List postLoaded = [];
   var titleController = TextEditingController();
   var messageController = TextEditingController();
   var _connect = GetConnect();
   final apiUrl = 'https://jsonplaceholder.typicode.com/posts';
 
-  Future<List<dynamic>> sendGetRequest() async {
-    List postLoaded = [];
+  Future<void> sendGetRequest() async {
     try {
       final response = await _connect.get(apiUrl);
+
       if (response.statusCode == 200) {
-        postLoaded = response.body;
+        setState(() {
+          postLoaded = response.body;
+        });
       }
     } catch (e) {
       print(e);
     }
-
-    return postLoaded;
   }
 
   Future<void> sendPostRequest() async {
@@ -84,17 +84,18 @@ class _GetxPostPageState extends State<GetxPostPage> {
                     label: Text('GET'))
               ],
             ),
-            // SizedBox(
-            //   child: ListView.builder(
-            //       itemCount: _postLoaded.length,
-            //       itemBuilder: ((context, index) {
-            //         return ListTile(
-            //           leading: Text(_postLoaded[index]['userId']),
-            //           title: Text(_postLoaded[index]['title']),
-            //           subtitle: Text(_postLoaded[index]['message']),
-            //         );
-            //       })),
-            // )
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                  itemCount: postLoaded.length,
+                  itemBuilder: ((context, index) {
+                    return ListTile(
+                      leading: Text(postLoaded[index]['userId'].toString()),
+                      title: Text(postLoaded[index]['title']),
+                      subtitle: Text(postLoaded[index]['body']),
+                    );
+                  })),
+            )
           ],
         ),
       ),

@@ -35,21 +35,21 @@
 //   Shape.fromTypeName('rectangle');
 // }
 
-// Future<String> createOrderMessage() async {
-//   print('awaiting user order');
-//   var order = await fetchUserOrder();
-//   return 'Your order is $order';
-// }
+Future<String> createOrderMessage() async {
+  print('awaiting user order');
+  var order = await fetchUserOrder();
+  return 'Your order is $order';
+}
 
-// Future<String> fetchUserOrder() {
-//   return Future.delayed(Duration(seconds: 3), () => 'Fufu & Eru');
-// }
+Future<String> fetchUserOrder() {
+  return Future.delayed(Duration(seconds: 3), () => 'Fufu & Eru');
+}
 
-// void main(List<String> args) async {
-//   print('Fetching User order');
-//   print(await createOrderMessage());
-//   print('Thank You for using our services');
-// }
+void main(List<String> args) async {
+  print('Fetching User order');
+  print(await createOrderMessage());
+  print('Thank You for using our services');
+}
 
 // Future<int> sumStream(Stream<int> stream) async {
 //   var sum = 0;
