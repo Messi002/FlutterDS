@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       initialRoute: MyHomePage.id,
       getPages: [
         GetPage(name: MyHomePage.id, page: () => MyHomePage()),
+        GetPage(name: ImagePage.id, page: () => ImagePage()),
       ],
     );
   }

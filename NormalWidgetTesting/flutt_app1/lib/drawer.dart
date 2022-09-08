@@ -12,8 +12,8 @@ class MyDrawer extends StatelessWidget {
         children: [
           DrawerHeader(child: Text("Network Request App")),
           ListTile(
-           title: Text('Text1'),
-           onTap: () => Get.offAndToNamed(MyHomePage.id),
+           title: Text('Fetch Images'),
+           onTap: () => Get.offAndToNamed(ImagePage.id),
           ),
         ],
       ),
