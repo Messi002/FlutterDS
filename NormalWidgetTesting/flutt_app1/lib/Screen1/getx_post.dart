@@ -16,25 +16,24 @@ class GetxPostPage extends StatefulWidget {
 }
 
 class _GetxPostPageState extends State<GetxPostPage> {
-  late List _postLoaded = [];
+  // var postLoad = sendGetRequest;
   var titleController = TextEditingController();
   var messageController = TextEditingController();
   var _connect = GetConnect();
   final apiUrl = 'https://jsonplaceholder.typicode.com/posts';
 
-  Future<void> sendGetRequest() async {
+  Future<List<dynamic>> sendGetRequest() async {
+    List postLoaded = [];
     try {
       final response = await _connect.get(apiUrl);
-      var data = jsonDecode(response.body);
       if (response.statusCode == 200) {
-        setState(() {
-          _postLoaded = data;
-        });
-        print(response.body);
-        }
+        postLoaded = response.body;
+      }
     } catch (e) {
       print(e);
     }
+
+    return postLoaded;
   }
 
   Future<void> sendPostRequest() async {
@@ -42,7 +41,7 @@ class _GetxPostPageState extends State<GetxPostPage> {
       final response = await _connect.post(apiUrl, {
         'title': titleController,
         'body': messageController,
-        'userId': Random().nextInt(10)
+        'userId': Random().nextInt(5)
       });
 
       if (response.statusCode == 200) {
@@ -61,6 +60,7 @@ class _GetxPostPageState extends State<GetxPostPage> {
       ),
       body: SizedBox(
         child: Column(
+          mainAxisSize: MainAxisSize.max,
           children: [
             TextField(
               controller: titleController,
@@ -84,15 +84,17 @@ class _GetxPostPageState extends State<GetxPostPage> {
                     label: Text('GET'))
               ],
             ),
-            ListView.builder(
-              itemCount: _postLoaded.length,
-              itemBuilder: ((context, index) {
-              return ListTile(
-                leading: Text(_postLoaded[index]['userId']),
-                title: ,
-                trailing: ,
-              );
-            }))
+            // SizedBox(
+            //   child: ListView.builder(
+            //       itemCount: _postLoaded.length,
+            //       itemBuilder: ((context, index) {
+            //         return ListTile(
+            //           leading: Text(_postLoaded[index]['userId']),
+            //           title: Text(_postLoaded[index]['title']),
+            //           subtitle: Text(_postLoaded[index]['message']),
+            //         );
+            //       })),
+            // )
           ],
         ),
       ),
