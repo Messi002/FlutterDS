@@ -8,6 +8,8 @@ import 'package:get/get.dart';
 
 class GetxPostPage extends StatefulWidget {
   const GetxPostPage({Key? key}) : super(key: key);
+  static const String id = '/getxPost';
+
 
   @override
   State<GetxPostPage> createState() => _GetxPostPageState();

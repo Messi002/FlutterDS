@@ -4,6 +4,7 @@ import 'package:flut_app/myhome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'Screen1/getx_post.dart';
 import 'Screen1/image_fetching.dart';
 
 void main() {
