@@ -14,6 +14,19 @@ class ImagePage extends StatefulWidget {
 }
 
 class _ImagePageState extends State<ImagePage> {
+  List<String> _loadedPhotos = [];
+  Future<void> loadPhotos() async{
+      const apiUrl = 'https://jsonplaceholder.typicode.com/photos';
+      final response = await http.get(Uri.parse(apiUrl));
+      final data= await json.decode(response.body);
+
+      if (response.statusCode == 200) {
+        setState(() {
+          _loadedPhotos = data;
+        });
+      }
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
