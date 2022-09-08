@@ -84,9 +84,11 @@ class _GetxPostPageState extends State<GetxPostPage> {
                     label: Text('GET'))
               ],
             ),
-            ListView.builder(itemBuilder: ((context, index) {
+            ListView.builder(
+              itemCount: _postLoaded.length,
+              itemBuilder: ((context, index) {
               return ListTile(
-                leading: ,
+                leading: Text(_postLoaded[index]['userId']),
                 title: ,
                 trailing: ,
               );
