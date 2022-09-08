@@ -1,3 +1,4 @@
+import 'package:flut_app/myhome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,7 +13,7 @@ class MyDrawer extends StatelessWidget {
           DrawerHeader(child: Text("Network Request App")),
           ListTile(
            title: Text('Text1'),
-           onTap: () => Get.offAndToNamed(page),
+           onTap: () => Get.offAndToNamed(MyHomePage.id),
           ),
         ],
       ),
