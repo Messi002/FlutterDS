@@ -16,19 +16,22 @@ class GetxPostPage extends StatefulWidget {
 }
 
 class _GetxPostPageState extends State<GetxPostPage> {
-   List postLoaded = [];
+  bool showSpinner = false;
+  List postLoaded = [];
   var titleController = TextEditingController();
   var messageController = TextEditingController();
   var _connect = GetConnect();
   final apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+  final SendapiUrl = 'https://jsonplaceholder.typicode.com/posts/';
 
   Future<void> sendGetRequest() async {
     try {
-      final response = await _connect.get(apiUrl);
+      final response = await _connect.get(SendapiUrl);
 
       if (response.statusCode == 200) {
         setState(() {
           postLoaded = response.body;
+          showSpinner = false;
         });
       }
     } catch (e) {
@@ -39,13 +42,15 @@ class _GetxPostPageState extends State<GetxPostPage> {
   Future<void> sendPostRequest() async {
     try {
       final response = await _connect.post(apiUrl, {
-        'title': titleController,
-        'body': messageController,
-        'userId': Random().nextInt(5)
+        'title': titleController.text.trim(),
+        'body': messageController.text.trim(),
+        'userId': 100,
+        'id': 100,
       });
+      print(response.statusCode);
 
-      if (response.statusCode == 200) {
-        print(response.statusText);
+      if (response.statusCode == 201) {
+        print(response.body);
       }
     } catch (e) {
       print(e);
@@ -75,26 +80,36 @@ class _GetxPostPageState extends State<GetxPostPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton.icon(
-                    onPressed: sendPostRequest,
+                    onPressed: () async{
+                      await sendPostRequest();
+                      Get.snackbar('Done', "Successful",snackPosition: SnackPosition.TOP);
+                    },
                     icon: Icon(Icons.upload),
                     label: Text('POST')),
                 ElevatedButton.icon(
-                    onPressed: sendGetRequest,
+                    onPressed: () {
+                      setState(() {
+                        showSpinner = true;
+                      });
+                      sendGetRequest();
+                    },
                     icon: Icon(Icons.download),
                     label: Text('GET'))
               ],
             ),
             Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                  itemCount: postLoaded.length,
-                  itemBuilder: ((context, index) {
-                    return ListTile(
-                      leading: Text(postLoaded[index]['userId'].toString()),
-                      title: Text(postLoaded[index]['title']),
-                      subtitle: Text(postLoaded[index]['body']),
-                    );
-                  })),
+              child: showSpinner
+                  ? Center(child: CircularProgressIndicator())
+                  : ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: postLoaded.length,
+                      itemBuilder: ((context, index) {
+                        return ListTile(
+                          leading: Text(postLoaded[index]['id'].toString()),
+                          title: Text(postLoaded[index]['title']),
+                          subtitle: Text(postLoaded[index]['body']),
+                        );
+                      })),
             )
           ],
         ),
