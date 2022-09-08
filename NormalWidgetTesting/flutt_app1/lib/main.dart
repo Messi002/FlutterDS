@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: MyHomePage.id, page: () => MyHomePage()),
         GetPage(name: ImagePage.id, page: () => ImagePage()),
+        GetPage(name: GetxPostPage.id, page: () => GetxPostPage()),
       ],
     );
   }

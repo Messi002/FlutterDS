@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 
@@ -15,12 +16,10 @@ class ImagePage extends StatefulWidget {
 
 class _ImagePageState extends State<ImagePage> {
   bool showSpinner = false;
-  List<dynamic> _loadedPhotos = [];
+  List _loadedPhotos = [];
   Future<void> loadPhotos() async {
     const apiUrl = 'https://jsonplaceholder.typicode.com/photos';
-    setState(() {
-      showSpinner = true;
-    });
+
     try {
       final response = await http.get(Uri.parse(apiUrl));
       final data = await json.decode(response.body);
@@ -39,10 +38,6 @@ class _ImagePageState extends State<ImagePage> {
         snackPosition: SnackPosition.BOTTOM,
       );
     }
-
-    setState(() {
-      showSpinner = false;
-    });
   }
 
   @override
@@ -54,13 +49,33 @@ class _ImagePageState extends State<ImagePage> {
       body: _loadedPhotos.isEmpty
           ? Center(
               child: ElevatedButton.icon(
-                  onPressed: () => loadPhotos(),
+                  onPressed: () {
+                    setState(() {
+                      showSpinner = true;
+                    });
+                    loadPhotos();
+                    setState(() {
+                      showSpinner = false;
+                    });
+                  },
                   icon: Icon(Icons.image),
                   label: Text('image')),
             )
-          : showSpinner
-              ? CircularProgressIndicator()
-              : Container(),
+          : _loadedPhotos.isEmpty
+              ? Center(child: CircularProgressIndicator())
+              : ListView.builder(
+                  itemCount: _loadedPhotos.length,
+                  itemBuilder: ((context, index) {
+                    return ListTile(
+                      leading: Image.network(
+                        _loadedPhotos[index]['thumbnailUrl'],
+                        width: 150,
+                        fit: BoxFit.cover,
+                      ),
+                      title: Text(_loadedPhotos[index]['title']),
+                      trailing: Text(_loadedPhotos[index]['id'].toString()),
+                    );
+                  })),
     );
   }
 }
