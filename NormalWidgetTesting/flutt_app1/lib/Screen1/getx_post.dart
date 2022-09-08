@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -14,7 +16,8 @@ class GetxPostPage extends StatefulWidget {
 }
 
 class _GetxPostPageState extends State<GetxPostPage> {
-  var titleController =
+  var titleController = TextEditingController();
+  var messageController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,27 +25,32 @@ class _GetxPostPageState extends State<GetxPostPage> {
       appBar: AppBar(
         title: const Text('Getx Post'),
       ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              ElevatedButton.icon(
-                  onPressed: null,
-                  icon: Icon(Icons.upload),
-                  label: Text('POST')),
-              ElevatedButton.icon(
-                  onPressed: null,
-                  icon: Icon(Icons.download),
-                  label: Text('GET'))
-            ],
-          ),
-          TextField(
-            decoration: InputDecoration(hintText: 'Enter title'),
-          ),
-          TextField(
-            decoration: InputDecoration(hintText: 'Enter message'),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal:8.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                ElevatedButton.icon(
+                    onPressed: null,
+                    icon: Icon(Icons.upload),
+                    label: Text('POST')),
+                ElevatedButton.icon(
+                    onPressed: null,
+                    icon: Icon(Icons.download),
+                    label: Text('GET'))
+              ],
+            ),
+            TextField(
+              controller: titleController,
+              decoration: InputDecoration(hintText: 'Enter title'),
+            ),
+            TextField(
+              controller: messageController,
+              decoration: InputDecoration(hintText: 'Enter message'),
+            ),
+          ],
+        ),
       ),
     );
   }
