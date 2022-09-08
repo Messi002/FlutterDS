@@ -68,10 +68,14 @@ class _GetxPostPageState extends State<GetxPostPage> {
           mainAxisSize: MainAxisSize.max,
           children: [
             TextField(
+              autofocus: true,
               controller: titleController,
               decoration: InputDecoration(hintText: 'Enter title'),
             ),
             TextField(
+              onChanged: (val) {
+                print('You have been typing: $val');
+              },
               controller: messageController,
               decoration: InputDecoration(hintText: 'Enter message'),
             ),
@@ -80,9 +84,10 @@ class _GetxPostPageState extends State<GetxPostPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton.icon(
-                    onPressed: () async{
+                    onPressed: () async {
                       await sendPostRequest();
-                      Get.snackbar('Done', "Successful",snackPosition: SnackPosition.TOP);
+                      Get.snackbar('Done', "Successful",
+                          snackPosition: SnackPosition.TOP);
                     },
                     icon: Icon(Icons.upload),
                     label: Text('POST')),
