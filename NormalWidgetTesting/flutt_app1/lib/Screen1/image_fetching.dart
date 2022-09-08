@@ -20,10 +20,16 @@ class _ImagePageState extends State<ImagePage> {
       final response = await http.get(Uri.parse(apiUrl));
       final data= await json.decode(response.body);
 
-      if (response.statusCode == 200) {
+     
+      try {
+         if (response.statusCode == 200) {
         setState(() {
           _loadedPhotos = data;
         });
+      }
+
+      } catch (e) {
+        print(e);
       }
 
   }
@@ -31,7 +37,9 @@ class _ImagePageState extends State<ImagePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Image Fetching'),),
-      body: ,
+      body: _loadedPhotos.isEmpty ? 
+        ElevatedButton.icon(onPressed: () => loadPhotos(), icon: Icon(Icons.image), label: Text('image'))
+      : Container(),
     );
   }
 }
