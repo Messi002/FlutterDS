@@ -2,6 +2,8 @@ import 'package:flut_app/myhome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'Screen1/image_fetching.dart';
+
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
 
