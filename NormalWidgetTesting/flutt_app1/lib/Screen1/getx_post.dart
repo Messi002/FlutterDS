@@ -1,16 +1,14 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_print
 
 import 'dart:convert';
-import 'dart:io';
 import 'dart:math' show Random;
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
 class GetxPostPage extends StatefulWidget {
-  GetxPostPage({Key? key}) : super(key: key);
+  const GetxPostPage({Key? key}) : super(key: key);
   static const String id = '/getxPost';
 
   @override
@@ -18,6 +16,7 @@ class GetxPostPage extends StatefulWidget {
 }
 
 class _GetxPostPageState extends State<GetxPostPage> {
+  late List _postLoaded = [];
   var titleController = TextEditingController();
   var messageController = TextEditingController();
   var _connect = GetConnect();
@@ -25,20 +24,32 @@ class _GetxPostPageState extends State<GetxPostPage> {
 
   Future<void> sendGetRequest() async {
     try {
-    final response = await _connect.get("$apiUrl${5}");
-      if (response.statusCode == 200) print(response.body);
+      final response = await _connect.get(apiUrl);
+      var data = jsonDecode(response.body);
+      if (response.statusCode == 200) {
+        setState(() {
+          _postLoaded = data;
+        });
+        print(response.body);
+        }
     } catch (e) {
       print(e);
     }
   }
 
-  Future<void> postGetRequest() async {
-
-
+  Future<void> sendPostRequest() async {
     try {
-      
+      final response = await _connect.post(apiUrl, {
+        'title': titleController,
+        'body': messageController,
+        'userId': Random().nextInt(10)
+      });
+
+      if (response.statusCode == 200) {
+        print(response.statusText);
+      }
     } catch (e) {
-      
+      print(e);
     }
   }
 
@@ -48,8 +59,7 @@ class _GetxPostPageState extends State<GetxPostPage> {
       appBar: AppBar(
         title: const Text('Getx Post'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
+      body: SizedBox(
         child: Column(
           children: [
             TextField(
@@ -65,17 +75,21 @@ class _GetxPostPageState extends State<GetxPostPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton.icon(
-                    onPressed: null,
+                    onPressed: sendPostRequest,
                     icon: Icon(Icons.upload),
                     label: Text('POST')),
                 ElevatedButton.icon(
-                    onPressed: null,
+                    onPressed: sendGetRequest,
                     icon: Icon(Icons.download),
                     label: Text('GET'))
               ],
             ),
             ListView.builder(itemBuilder: ((context, index) {
-              return ListTile();
+              return ListTile(
+                leading: ,
+                title: ,
+                trailing: ,
+              );
             }))
           ],
         ),
