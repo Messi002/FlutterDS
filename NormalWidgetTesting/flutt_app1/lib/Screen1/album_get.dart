@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class AlbumPost extends StatefulWidget {
-  const AlbumPost({Key? key}) : super(key: key);
-  static const String id = '\albumpost';
+class AlbumPostPage extends StatefulWidget {
+  const AlbumPostPage({Key? key}) : super(key: key);
+  static const String id = '/albumpost';
 
   @override
-  State<AlbumPost> createState() => _AlbumPostState();
+  State<AlbumPostPage> createState() => _AlbumPostPageState();
 }
 
-class _AlbumPostState extends State<AlbumPost> {
+class _AlbumPostPageState extends State<AlbumPostPage> {
   @override
   Widget build(BuildContext context) {
     return Container();

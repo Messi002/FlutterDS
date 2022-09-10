@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'package:flut_app/myhome_page.dart';
 import 'package:flutter/material.dart';
+
+
+import 'package:flut_app/Screen1/album_get.dart';
+import 'package:flut_app/myhome_page.dart';
 import 'package:get/get.dart';
 
 import 'Screen1/getx_post.dart';
@@ -26,6 +28,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: MyHomePage.id, page: () => MyHomePage()),
         GetPage(name: ImagePage.id, page: () => ImagePage()),
         GetPage(name: GetxPostPage.id, page: () => GetxPostPage()),
+        GetPage(name: AlbumPostPage.id, page: () => AlbumPostPage()),
       ],
     );
   }
