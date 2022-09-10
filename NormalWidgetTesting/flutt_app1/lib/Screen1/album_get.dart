@@ -21,8 +21,9 @@ class _AlbumPostPageState extends State<AlbumPostPage> {
     futureAlbum = fetchAlbum();
   }
 
-  final apiUrl = 'https://jsonplaceholder.typicode.com/albums/1';
+  final apiUrl = 'https://jsonplaceholder.typicode.com/albums/10';
   Future<AlbumModel> fetchAlbum() async {
+    
     http.Response response = await http.get(Uri.parse(apiUrl));
     if (response.statusCode == 200) {
       print(response.body);
