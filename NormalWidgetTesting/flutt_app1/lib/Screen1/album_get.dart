@@ -14,10 +14,11 @@ class AlbumPostPage extends StatefulWidget {
 }
 
 class _AlbumPostPageState extends State<AlbumPostPage> {
+  late Future<AlbumModel> futureAlbum;
   @override
   void initState() {
     super.initState();
-    fetchAlbum();
+    futureAlbum = fetchAlbum();
   }
 
   final apiUrl = 'https://jsonplaceholder.typicode.com/albums/1';
@@ -35,7 +36,13 @@ class _AlbumPostPageState extends State<AlbumPostPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(title: 'Album Fetch'),
-      body: Container(),
+      body: FutureBuilder<AlbumModel>(
+          future: futureAlbum,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+            return   ListTile();
+            }
+          }),
     );
   }
 }
