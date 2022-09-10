@@ -23,14 +23,9 @@ class AlbumPostPage extends StatefulWidget {
 }
 
 class _AlbumPostPageState extends State<AlbumPostPage> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   fetchAlbum();
-  // }
 
   TextEditingController titleController = TextEditingController();
-  final apiUrl = 'https://jsonplaceholder.typicode.com/albums///1';
+  final apiUrl = 'https://jsonplaceholder.typicode.com/albums';
 
   Future<List<AlbumModel>> fetchAlbum() async {
     http.Response response = await http.get(Uri.parse(apiUrl));
@@ -71,7 +66,7 @@ class _AlbumPostPageState extends State<AlbumPostPage> {
     if (response.statusCode == 200) {
       return AlbumModel.fromJson(jsonDecode(response.body));
     } else {
-      throw Exception('Failed to create Album');
+      throw Exception('Failed to update Album');
     }
   }
 
