@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-
 //  if (response.statusCode == 200) {
 //       print(response.body);
 //       return AlbumModel.fromJson(jsonDecode(response.body));
@@ -23,15 +22,14 @@ class AlbumPostPage extends StatefulWidget {
 }
 
 class _AlbumPostPageState extends State<AlbumPostPage> {
-  late Future<AlbumModel> futureAlbum;
   @override
   void initState() {
     super.initState();
-    futureAlbum = fetchAlbum();
+    fetchAlbum();
   }
 
   final apiUrl = 'https://jsonplaceholder.typicode.com/albums/10';
-  Future<AlbumModel> fetchAlbum() async {
+  Future<List<AlbumModel>> fetchAlbum() async {
     http.Response response = await http.get(Uri.parse(apiUrl));
     return compute(parseAlbums, response.body);
   }
@@ -40,27 +38,30 @@ class _AlbumPostPageState extends State<AlbumPostPage> {
     final parsed = jsonDecode(responsebody).cast<Map<String, dynamic>>();
 
     return parsed.map<AlbumModel>((json) => AlbumModel.fromJson(json)).toList();
-    
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(title: 'Album Fetch'),
-      body: FutureBuilder<AlbumModel>(
-          future: futureAlbum,
+      body: FutureBuilder<List<AlbumModel>>(
+          future: fetchAlbum(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return ListTile(
-                leading: Text("${snapshot.data!.id}"),
-                title: Text(snapshot.data!.title),
-                subtitle: Text("${snapshot.data!.userId}"),
-              );
+              return ListView.builder(
+                itemCount: snapshot.data!.length,
+                itemBuilder: (context, index) {
+                return ListTile(
+                  leading: Text("${snapshot.data![index].id}"),
+                  title: Text(snapshot.data![index].title),
+                  subtitle: Text("${snapshot.data![index].userId}"),
+                );
+              });
             } else if (snapshot.hasError) {
               Text("${snapshot.error}");
             }
 
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           }),
     );
   }
