@@ -110,17 +110,17 @@ class _AlbumPostPageState extends State<AlbumPostPage> {
             ],
           ),
           SizedBox(height: 20),
-          FutureBuilder<AlbumModel>(
-              future: updateAlbum(titleController.text.trim()),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return Text(snapshot.data!.title);
-                } else if (snapshot.hasError) {
-                  Text("${snapshot.error}");
-                }
+          // FutureBuilder<AlbumModel>(
+          //     future: updateAlbum(titleController.text.trim()),
+          //     builder: (context, snapshot) {
+          //       if (snapshot.hasData) {
+          //         return Text(snapshot.data!.title);
+          //       } else if (snapshot.hasError) {
+          //         Text("${snapshot.error}");
+          //       }
 
-                return const Center(child: CircularProgressIndicator());
-              }),
+          //       return const Center(child: CircularProgressIndicator());
+          //     }),
           FutureBuilder<List<AlbumModel>>(
               future: fetchAlbum(),
               builder: (context, snapshot) {
