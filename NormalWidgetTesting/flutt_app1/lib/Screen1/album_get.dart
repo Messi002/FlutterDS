@@ -40,8 +40,16 @@ class _AlbumPostPageState extends State<AlbumPostPage> {
           future: futureAlbum,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-            return   ListTile();
+              return ListTile(
+                leading: Text("${snapshot.data!.id}"),
+                title: Text(snapshot.data!.title),
+                subtitle: Text("${snapshot.data!.userId}"),
+              );
+            } else if (snapshot.hasError) {
+              Text("${snapshot.error}");
             }
+
+            return CircularProgressIndicator();
           }),
     );
   }
