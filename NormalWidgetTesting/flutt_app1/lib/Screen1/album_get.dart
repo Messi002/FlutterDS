@@ -28,17 +28,25 @@ class _AlbumPostPageState extends State<AlbumPostPage> {
     fetchAlbum();
   }
 
-  final apiUrl = 'https://jsonplaceholder.typicode.com/albums/10';
+  final apiUrl = 'https://jsonplaceholder.typicode.com/albums';
+  // Future<List<AlbumModel>> fetchAlbum() async {
+  //   http.Response response = await http.get(Uri.parse(apiUrl));
+  //   return compute(parseAlbums, response.body);
+
+  // }
+
   Future<List<AlbumModel>> fetchAlbum() async {
     http.Response response = await http.get(Uri.parse(apiUrl));
-    return compute(parseAlbums, response.body);
-  }
-
-  List<AlbumModel> parseAlbums(String responsebody) {
-    final parsed = jsonDecode(responsebody).cast<Map<String, dynamic>>();
+    final parsed = jsonDecode(response.body).cast<Map<String, dynamic>>();
 
     return parsed.map<AlbumModel>((json) => AlbumModel.fromJson(json)).toList();
   }
+
+  // List<AlbumModel> parseAlbums(String responsebody) {
+  //   final parsed = jsonDecode(responsebody).cast<Map<String, dynamic>>();
+
+  //   return parsed.map<AlbumModel>((json) => AlbumModel.fromJson(json)).toList();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +56,7 @@ class _AlbumPostPageState extends State<AlbumPostPage> {
           future: fetchAlbum(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
+              // return Text(snapshot.data![1].title);
               return ListView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
@@ -61,7 +70,7 @@ class _AlbumPostPageState extends State<AlbumPostPage> {
               Text("${snapshot.error}");
             }
 
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }),
     );
   }
