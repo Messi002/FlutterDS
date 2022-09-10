@@ -14,16 +14,20 @@ class AlbumPostPage extends StatefulWidget {
 }
 
 class _AlbumPostPageState extends State<AlbumPostPage> {
+  @override
+  void initState() {
+    super.initState();
+    fetchAlbum();
+  }
+
   final apiUrl = 'https://jsonplaceholder.typicode.com/albums/1';
   Future<AlbumModel> fetchAlbum() async {
-    try {
-      http.Response response =
-          await http.get(Uri.parse(apiUrl)) as http.Response;
-      if (response.statusCode == 200) {
-        return AlbumModel.fromJson(jsonDecode(response.body));
-      } else {}
-    } catch (e) {
-      print(e);
+    http.Response response = await http.get(Uri.parse(apiUrl));
+    if (response.statusCode == 200) {
+      print(response.body);
+      return AlbumModel.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to load album');
     }
   }
 
