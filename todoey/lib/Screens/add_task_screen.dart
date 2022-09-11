@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class AddTaskScreen extends StatefulWidget {
@@ -15,7 +17,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-        borderRadius
+        borderRadius : BorderRadius.only(
+          topLeft: Radius.circular(20.0),
+          topRight: Radius.circular(20.0)
+        )
         ),
       ),
     );
