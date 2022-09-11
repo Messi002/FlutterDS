@@ -23,8 +23,14 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
         )
         ),
         child: Column(
+          // ignore: prefer_const_literals_to_create_immutables
           children: <Widget>[
-            Text('Add Task', style:TextStyle(color: Colors.lightBlueAccent ),)
+            Text('Add Task', style:TextStyle(color: Colors.lightBlueAccent, fontSize: 14 ),),
+            SizedBox(height:8),
+            TextField(
+              autofocus:true;
+              
+            )
           ],
         ),
       ),
