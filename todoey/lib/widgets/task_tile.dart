@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 
-class TaskTile extends StatelessWidget {
-  const TaskTile({
-    Key? key,
-  }) : super(key: key);
-  final _value = false;
-  final bool? newValue = false;
+class TaskTile extends StatefulWidget {
+
+  @override
+  State<TaskTile> createState() => _TaskTileState();
+}
+
+class _TaskTileState extends State<TaskTile> {
+  bool? _value = false;
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text('Building something'),
       trailing: Checkbox(
           value: _value,
-          onChanged: (bool? newValue) {
+          onChanged: (newValue) {
             setState(() {
-             _value = newValue!;
+             _value = newValue;
             });
           }),
     );
