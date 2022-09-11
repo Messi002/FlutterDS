@@ -69,36 +69,6 @@ class TasksScreen extends StatelessWidget {
   }
 }
 
-class TaskList extends StatelessWidget {
-  const TaskList({
-    Key? key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[TaskTile(), TaskTile()],
-    );
-  }
-}
 
-class TaskTile extends StatelessWidget {
-  const TaskTile({
-    Key? key,
-  }) : super(key: key);
-  final _value = false;
-  final bool? newValue = false;
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text('Building something'),
-      trailing: Checkbox(
-          value: _value,
-          onChanged: (bool? newValue) {
-            setState(() {
-             _value = newValue!;
-            });
-          }),
-    );
-  }
-}
+
