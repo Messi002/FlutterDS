@@ -9,41 +9,53 @@ class TasksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
-      body: Container(
-        padding: EdgeInsets.only(top: 60.0, left: 30, right: 30, bottom: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          // ignore: prefer_const_literals_to_create_immutables
-          children: <Widget>[
-            CircleAvatar(
-                backgroundColor: Colors.white,
-                radius: 30.0,
-                child: Icon(
-                  Icons.list,
-                  size: 30,
-                  color: Colors.black,
-                )),
-            SizedBox(height: 10.0),
-            Text(
-              'Todoey',
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 50.0,
-                color: Colors.white,
-              ),
+      body: Column(
+        children: [
+          Container(
+            padding:
+                EdgeInsets.only(top: 60.0, left: 30, right: 30, bottom: 30),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              // ignore: prefer_const_literals_to_create_immutables
+              children: <Widget>[
+                CircleAvatar(
+                    backgroundColor: Colors.white,
+                    radius: 30.0,
+                    child: Icon(
+                      Icons.list,
+                      size: 30,
+                      color: Colors.black,
+                    )),
+                SizedBox(height: 10.0),
+                Text(
+                  'Todoey',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 50.0,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  '12 Tasks',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                  ),
+                ),
+              ],
             ),
-            Text('12 Tasks', style: TextStyle(
-              color: Colors.white,
-              fontSize: 18.0,
-            ),),
-            Container(
+          ),
+          Expanded(
+            child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.only(topLeft:Radius.circular(20.0), topRight: Radius.circular(20)),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20.0),
+                    topRight: Radius.circular(20)),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
