@@ -9,9 +9,10 @@ class TasksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
-      floatingActionButton: FloatingActionButton(onPressed: null,
-      backgroundColor: Colors.lightBlueAccent,
-      child: Icon(Icons.add),
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        backgroundColor: Colors.lightBlueAccent,
+        child: Icon(Icons.add),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,10 +77,7 @@ class TaskList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: <Widget>[
-        TaskTile(),
-         TaskTile()
-      ],
+      children: <Widget>[TaskTile(), TaskTile()],
     );
   }
 }
@@ -88,12 +86,19 @@ class TaskTile extends StatelessWidget {
   const TaskTile({
     Key? key,
   }) : super(key: key);
-
+  final _value = false;
+  final bool? newValue = false;
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text('Building something'),
-      trailing: Checkbox(value: false, onChanged: onChanged),
+      trailing: Checkbox(
+          value: _value,
+          onChanged: (bool? newValue) {
+            setState(() {
+             _value = newValue!;
+            });
+          }),
     );
   }
 }
