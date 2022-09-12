@@ -15,17 +15,15 @@ class TodoRepository implements Repository {
 
   @override
   Future<List<Todo>> getTodoList() async {
-
     var url = Uri.parse('$dataURL/todos');
-       var response = await http.get(url);
-      if (response.statusCode == 200) {
-        final parsed = jsonDecode(response.body).cast<Map<String, dynamic>>();
-        return parsed.map<Todo>((json) => Todo.fromJson(json)).toList();
-       
-      } else {
-        throw Exception('Failed Load Todos');
-      }
-  
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      final parsed = jsonDecode(response.body).cast<Map<String, dynamic>>();
+      return parsed.map<Todo>((json) => Todo.fromJson(json)).toList();
+    } else {
+      throw Exception('Failed Load Todos');
+    }
+
     // List<Todo> todoList = [];
     //var body = json.decode(response.body);
     //for(var i =0; i < body.length; i++){
@@ -34,10 +32,27 @@ class TodoRepository implements Repository {
     // return todoList;
   }
 
+//patch --> Modify passed variables only.
   @override
-  Future<String> patchCompleted(Todo todo) {
-    // TODO: implement patchCompleted
-    throw UnimplementedError();
+  Future<String> patchCompleted(Todo todo) async {
+    var url = Uri.parse('$dataURL/todos/${todo.id}');
+    //call back data
+    String resData = "";
+    //bool? => String
+    await http.patch(
+      url,
+      body: {
+        'completed': (!todo.completed).toString(),
+      },
+      headers: {'Authorization': 'your_token'},
+    ).then((response) {
+      //homescreen => data
+      Map<String, dynamic> result = json.decode(response.body);
+      print(result);
+      return resData = result[''];
+    });
+
+    return resData;
   }
 
   @override
