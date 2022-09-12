@@ -8,9 +8,15 @@ class TodoRepository implements Repository {
   String dataURL = 'https://jsonplaceholder.typicode.com';
 
   @override
-  Future<String> deletedTodo(Todo todo) {
-    // TODO: implement deletedTodo
-    throw UnimplementedError();
+  Future<String> deletedTodo(Todo todo) async{
+    var url = Uri.parse('$dataURL/todos/${todo.id}');
+    var result = 'false';
+    await http.delete(url).then((value) {
+      print(value.body);
+      return result = 'true';
+    });
+
+    return result;
   }
 
   @override
@@ -62,7 +68,7 @@ class TodoRepository implements Repository {
 
 //Modify passed variables only and treat other variables NULL or Default
   @override
-  Future<String> putCompleted(Todo todo) async{
+  Future<String> putCompleted(Todo todo) async {
     var url = Uri.parse('$dataURL/todos/${todo.id}');
     //call back data
     String resData = "";

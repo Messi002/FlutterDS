@@ -67,6 +67,9 @@ class HomeScreen extends StatelessWidget {
                                 child: buildCallContainer(
                                     text: 'put', color: Colors.teal[700])),
                             InkWell(
+                              onTap: (){
+                                
+                              },
                                 child: buildCallContainer(
                                     text: 'del', color: Colors.red[700])),
                           ],
