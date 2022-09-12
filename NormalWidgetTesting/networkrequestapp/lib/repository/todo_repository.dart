@@ -19,7 +19,7 @@ class TodoRepository implements Repository {
     var url = Uri.parse('$dataURL/todos');
     var response = await http.get(url);
     final parsed = jsonDecode(response.body).cast<Map<String, dynamic>>();
-
+    print(response.statusCode);
     return parsed.map<Todo>((json) => Todo.fromJson(json)).toList();
     //var body = json.decode(response.body);
     //for(var i =0; i < body.length; i++){
