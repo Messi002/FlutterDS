@@ -15,16 +15,18 @@ class TodoRepository implements Repository {
 
   @override
   Future<List<Todo>> getTodoList() async {
-    // List<Todo> todoList = [];
-  if(){
-
-  }else}
 
     var url = Uri.parse('$dataURL/todos');
-    var response = await http.get(url);
-    final parsed = jsonDecode(response.body).cast<Map<String, dynamic>>();
-    print(parsed);
-    return parsed.map<Todo>((json) => Todo.fromJson(json)).toList();
+       var response = await http.get(url);
+      if (response.statusCode == 200) {
+        final parsed = jsonDecode(response.body).cast<Map<String, dynamic>>();
+        return parsed.map<Todo>((json) => Todo.fromJson(json)).toList();
+       
+      } else {
+        throw Exception('Failed Load Todos');
+      }
+  
+    // List<Todo> todoList = [];
     //var body = json.decode(response.body);
     //for(var i =0; i < body.length; i++){
     //todoList.add(Todo.fromJson(body[i]));
