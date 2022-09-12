@@ -42,14 +42,14 @@ class TodoRepository implements Repository {
     await http.patch(
       url,
       body: {
-        'completed': (!todo.completed).toString(),
+        'completed': (!todo.completed!).toString(),
       },
       headers: {'Authorization': 'your_token'},
     ).then((response) {
       //homescreen => data
       Map<String, dynamic> result = json.decode(response.body);
       print(result);
-      return resData = result[''];
+      return resData = result['completed'];
     });
 
     return resData;

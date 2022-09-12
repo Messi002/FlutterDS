@@ -46,9 +46,32 @@ class HomeScreen extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
-                            InkWell(child: buildCallContainer(text: 'patch',color: Colors.orange[700])),
-                            InkWell(child: buildCallContainer(text: 'put',color: Colors.teal[700])),
-                            InkWell(child: buildCallContainer(text: 'del',color: Colors.red[700])),
+                            InkWell(
+                                onTap: () {
+                                  todoController
+                                      .updatePatchCompleted(todo!)
+                                      .then(
+                                        (value){
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                  duration:const Duration(milliseconds: 400),
+                                  content : Text(value)
+                                  )
+                                  );
+                                  }
+                                      );
+                                },
+                                child: buildCallContainer(
+                                    text: 'patch', color: Colors.orange[700])),
+                            InkWell(
+                              onTap: (){
+                                
+                              },
+                                child: buildCallContainer(
+                                    text: 'put', color: Colors.teal[700])),
+                            InkWell(
+                                child: buildCallContainer(
+                                    text: 'del', color: Colors.red[700])),
                           ],
                         )),
                   ],
@@ -72,7 +95,7 @@ class HomeScreen extends StatelessWidget {
 class buildCallContainer extends StatelessWidget {
   final String text;
   final Color? color;
-  buildCallContainer({required this.text , required this.color});
+  buildCallContainer({required this.text, required this.color});
 
   @override
   Widget build(BuildContext context) {
