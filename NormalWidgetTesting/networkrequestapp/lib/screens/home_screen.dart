@@ -19,6 +19,7 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(onPressed: () {
         Todo todo = Todo(userId: 3, id: 1, title: 'hello', completed: false);
       },
+      child: Icon(Icons.add),
       ),
       appBar: AppBar(title: Text('Rest API')),
       body: FutureBuilder<List<Todo>>(
