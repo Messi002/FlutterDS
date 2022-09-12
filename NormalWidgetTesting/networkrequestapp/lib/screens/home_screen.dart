@@ -44,6 +44,7 @@ class HomeScreen extends StatelessWidget {
                     Expanded(
                         flex: 3,
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
                             buildCallContainer(text: 'patch',color: Colors.orange[700]),
                             buildCallContainer(text: 'put',color: Colors.teal[700]),
@@ -80,7 +81,7 @@ class buildCallContainer extends StatelessWidget {
       height: 40.0,
       decoration: BoxDecoration(
           color: color, borderRadius: BorderRadius.circular(10.0)),
-      child: Text(text),
+      child: Center(child: Text(text)),
     );
   }
 }
