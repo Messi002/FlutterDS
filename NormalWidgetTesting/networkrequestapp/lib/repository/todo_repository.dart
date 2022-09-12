@@ -1,9 +1,12 @@
-
+import 'dart:convert';
 
 import 'package:flut_app/models/todo.dart';
 import 'package:flut_app/repository/repository.dart';
+import 'package:http/http.dart' as http;
 
-class TodoRepository implements Repository{
+class TodoRepository implements Repository {
+  String dataURL = 'https://jsonplaceholder.typicode.com';
+
   @override
   Future<String> deletedTodo(Todo todo) {
     // TODO: implement deletedTodo
@@ -11,9 +14,18 @@ class TodoRepository implements Repository{
   }
 
   @override
-  Future<List<Todo>> getTodoList() {
-    // TODO: implement getTodoList
-    throw UnimplementedError();
+  Future<List<Todo>> getTodoList() async {
+    // List<Todo> todoList = [];
+    var url = Uri.parse('$dataURL/todos');
+    var response = await http.get(url);
+    final parsed = jsonDecode(response.body).cast<Map<String, dynamic>>();
+
+    return parsed.map<Todo>((json) => Todo.fromJson(json)).toList();
+    //var body = json.decode(response.body);
+    //for(var i =0; i < body.length; i++){
+    //todoList.add(Todo.fromJson(body[i]));
+    //}
+    // return todoList;
   }
 
   @override
@@ -33,5 +45,4 @@ class TodoRepository implements Repository{
     // TODO: implement putCompleted
     throw UnimplementedError();
   }
-
 }
