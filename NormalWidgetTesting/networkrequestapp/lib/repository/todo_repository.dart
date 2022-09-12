@@ -42,13 +42,12 @@ class TodoRepository implements Repository {
     await http.patch(
       url,
       body: {
-        'completed': (!todo.completed!).toString(),
+        'completed': (!todo.completed).toString(),
       },
       headers: {'Authorization': 'your_token'},
     ).then((response) {
       //homescreen => data
       Map<String, dynamic> result = json.decode(response.body);
-      print(result);
       return resData = result['completed'];
     });
 
@@ -61,9 +60,26 @@ class TodoRepository implements Repository {
     throw UnimplementedError();
   }
 
+//Modify passed variables only and treat other variables NULL or Default
   @override
-  Future<String> putCompleted(Todo todo) {
-    // TODO: implement putCompleted
-    throw UnimplementedError();
+  Future<String> putCompleted(Todo todo) async{
+    var url = Uri.parse('$dataURL/todos/${todo.id}');
+    //call back data
+    String resData = "";
+    //bool? => String
+    await http.put(
+      url,
+      body: {
+        'completed': (!todo.completed).toString(),
+      },
+      headers: {'Authorization': 'your_token'},
+    ).then((response) {
+      //homescreen => data
+      Map<String, dynamic> result = json.decode(response.body);
+      print(result);
+      return resData = result['completed'];
+    });
+
+    return resData;
   }
 }
