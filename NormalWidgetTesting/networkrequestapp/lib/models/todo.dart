@@ -12,10 +12,17 @@ class Todo {
 
   factory Todo.fromJson(Map<String, dynamic> json) {
     return Todo(
-        userId: json['userId'],
-        id: json['id'],
-        title: json['title'],
-        completed: json['completed'],
-        );
+      userId: json['userId'],
+      id: json['id'],
+      title: json['title'],
+      completed: json['completed'],
+    );
   }
+
+  Map<String, dynamic> toJson() => {
+        'userId': userId,
+        'id': id,
+        'title': title,
+        'completed': completed,
+      };
 }
