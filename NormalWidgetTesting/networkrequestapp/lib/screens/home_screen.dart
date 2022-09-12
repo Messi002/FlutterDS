@@ -16,6 +16,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        Todo todo = Todo(userId: 3, id: 1, title: 'hello', completed: false);
+      },
+      ),
       appBar: AppBar(title: Text('Rest API')),
       body: FutureBuilder<List<Todo>>(
         future: todoController.fetchTodoList(),
@@ -68,7 +72,9 @@ class HomeScreen extends StatelessWidget {
                                     text: 'put', color: Colors.teal[700])),
                             InkWell(
                                 onTap: () {
-                                  todoController.updateDelCompleted(todo!).then((value) {
+                                  todoController
+                                      .updateDelCompleted(todo!)
+                                      .then((value) {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                         SnackBar(
                                             duration: const Duration(
@@ -76,7 +82,6 @@ class HomeScreen extends StatelessWidget {
                                             content: Text(value)));
                                   });
                                 },
-
                                 child: buildCallContainer(
                                     text: 'del', color: Colors.red[700])),
                           ],
