@@ -3,7 +3,7 @@ import 'package:flut_app/repository/todo_repository.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-   HomeScreen({super.key});
+  HomeScreen({super.key});
 
 //dependency injection
   var todoController = TodoController(TodoRepository());
@@ -12,7 +12,15 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Rest API')),
-      body: Container(),
+      body: Container(
+        child: Center(
+          child: ElevatedButton(
+              onPressed: () {
+                todoController.fetchTodoList();
+              },
+              child: Text('Fetch')),
+        ),
+      ),
     );
   }
 }
