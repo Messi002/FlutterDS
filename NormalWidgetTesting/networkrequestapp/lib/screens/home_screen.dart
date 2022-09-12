@@ -25,9 +25,7 @@ class HomeScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
-          if (snapshot.connectionState == ConnectionStatus.connected) {
-            return GetSnackBar(title: 'Title', message: 'hello',snackPosition: SnackPosition.TOP,);
-          }
+
           if (snapshot.hasError) {
             return Center(
               child: Text('${snapshot.error}'),
@@ -35,7 +33,18 @@ class HomeScreen extends StatelessWidget {
           }
           return ListView.separated(
             itemBuilder: (context, index) {
-              return Container();
+              var todo = snapshot.data?[index];
+              return Container(
+                height: 100.0,
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(flex:1,child: Text('${todo?.id}')),
+                    Expanded(flex:1,child: Text('${todo?.id}')),
+                    Expanded(flex:1,child: Text('${todo?.id}')),
+                  ],
+                ),
+              );
             },
             separatorBuilder: (context, index) {
               return Divider(
