@@ -39,9 +39,15 @@ class HomeScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   children: <Widget>[
-                    Expanded(flex:1,child: Text('${todo?.id}')),
-                    Expanded(flex:1,child: Text('${todo?.id}')),
-                    Expanded(flex:1,child: Text('${todo?.id}')),
+                    Expanded(flex: 1, child: Text('${todo?.id}')),
+                    Expanded(flex: 2, child: Text('${todo?.title}')),
+                    Expanded(
+                        flex: 3,
+                        child: Row(
+                          children: <Widget>[
+                            buildCallContainer(text: 'patch'),
+                          ],
+                        )),
                   ],
                 ),
               );
@@ -56,6 +62,23 @@ class HomeScreen extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+}
+
+class buildCallContainer extends StatelessWidget {
+  final String text;
+  final Color color;
+  buildCallContainer({required this.text , required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 40.0,
+      height: 40.0,
+      decoration: BoxDecoration(
+          color: Colors.orange, borderRadius: BorderRadius.circular(10.0)),
+      child: Text(text),
     );
   }
 }
