@@ -67,9 +67,16 @@ class HomeScreen extends StatelessWidget {
                                 child: buildCallContainer(
                                     text: 'put', color: Colors.teal[700])),
                             InkWell(
-                              onTap: (){
-                                
-                              },
+                                onTap: () {
+                                  todoController.updateDelCompleted(todo!).then((value) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                            duration: const Duration(
+                                                milliseconds: 400),
+                                            content: Text(value)));
+                                  });
+                                },
+
                                 child: buildCallContainer(
                                     text: 'del', color: Colors.red[700])),
                           ],
