@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flut_app/controller/todo_controller.dart';
 import 'package:flut_app/models/todo.dart';
 import 'package:flut_app/repository/todo_repository.dart';
