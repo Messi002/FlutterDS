@@ -46,9 +46,9 @@ class HomeScreen extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
-                            buildCallContainer(text: 'patch',color: Colors.orange[700]),
-                            buildCallContainer(text: 'put',color: Colors.teal[700]),
-                            buildCallContainer(text: 'del',color: Colors.red[700]),
+                            InkWell(child: buildCallContainer(text: 'patch',color: Colors.orange[700])),
+                            InkWell(child: buildCallContainer(text: 'put',color: Colors.teal[700])),
+                            InkWell(child: buildCallContainer(text: 'del',color: Colors.red[700])),
                           ],
                         )),
                   ],
