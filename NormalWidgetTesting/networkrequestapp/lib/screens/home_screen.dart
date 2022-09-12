@@ -45,7 +45,9 @@ class HomeScreen extends StatelessWidget {
                         flex: 3,
                         child: Row(
                           children: <Widget>[
-                            buildCallContainer(text: 'patch'),
+                            buildCallContainer(text: 'patch',color: Colors.orange[700]),
+                            buildCallContainer(text: 'put',color: Colors.teal[700]),
+                            buildCallContainer(text: 'del',color: Colors.red[700]),
                           ],
                         )),
                   ],
@@ -68,7 +70,7 @@ class HomeScreen extends StatelessWidget {
 
 class buildCallContainer extends StatelessWidget {
   final String text;
-  final Color color;
+  final Color? color;
   buildCallContainer({required this.text , required this.color});
 
   @override
@@ -77,7 +79,7 @@ class buildCallContainer extends StatelessWidget {
       width: 40.0,
       height: 40.0,
       decoration: BoxDecoration(
-          color: Colors.orange, borderRadius: BorderRadius.circular(10.0)),
+          color: color, borderRadius: BorderRadius.circular(10.0)),
       child: Text(text),
     );
   }
