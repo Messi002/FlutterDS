@@ -16,7 +16,15 @@ class _DetailWidgetState extends State<DetailWidget> {
     return Container(
       color: Colors.blue,
       child: Center(child: Column(
-        
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(widget.data.toString(),
+          style: TextStyle(
+            fontSize: 36.0,
+            color: Colors.white
+          ),
+          )
+        ],
       )),
     );
   }
