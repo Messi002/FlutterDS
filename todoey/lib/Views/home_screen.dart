@@ -4,16 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:todoey/Screens/task_screen.dart';
 import 'package:flutter/foundation.dart';
 
-
-enum Colors{
-  red,
-  blue,
-  orange,
-  white
-}
-
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+ HomeScreen({super.key});
+
+  List<Color> colors = [Colors.red, Colors.blue,Colors.purple,Colors.teal];
 
   @override
   Widget build(BuildContext context) {
@@ -49,25 +43,25 @@ class HomeScreen extends StatelessWidget {
           LayoutBuilder(builder: (context, constraints) {
             if (constraints.maxHeight < 500 || constraints.maxWidth > 500) {
               return Row(
-                children: List.generate(4, (index){
+                children: List.generate(4, (index) {
                   return Expanded(
-                    child: Container(
-                  color: Colors.red,
-                  child: Text('$index'),
-                ));
+                      child: Container(
+                    color: colors[index],
+                    child: Text('$index'),
+                  ));
                 }),
               );
             }
 
             return Column(
-                children: List.generate(4, (index){
-                  return Expanded(
+              children: List.generate(4, (index) {
+                return Expanded(
                     child: Container(
-                  color: Colors.blue,
+                  color: colors[index],
                   child: Text('$index'),
                 ));
-                }),
-              );
+              }),
+            );
           }),
         ],
       ),
