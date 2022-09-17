@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todoey/Views/detail_widget.dart';
 
+import 'list_widget.dart';
+
 class MaasterDetailPage extends StatefulWidget {
   const MaasterDetailPage({super.key});
 
