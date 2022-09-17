@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoey/Views/detail_page.dart';
 import 'package:todoey/Views/detail_widget.dart';
 
 import 'list_widget.dart';
@@ -18,6 +19,7 @@ class _MaasterDetailPageState extends State<MaasterDetailPage> {
     return Scaffold(
       appBar: AppBar(),
       body: OrientationBuilder(builder: (context, orientation) {
+        
         if (MediaQuery.of(context).size.width > 600) {
           isLargeScreen = true;
         } else {
@@ -33,7 +35,7 @@ class _MaasterDetailPageState extends State<MaasterDetailPage> {
                 setState(() {});
               } else {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return DetailPage(value);
+                  return DetailPage();
                 }));
               }
             }),
