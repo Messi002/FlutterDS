@@ -17,8 +17,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(title: Text('Welcome')),
       body: LayoutBuilder(builder: (context, constraints) {
         if (constraints.maxHeight < 500 || constraints.maxWidth > 500) {
-          return SafeArea(
-            left: false,
+          return Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: List.generate(4, (index) {
