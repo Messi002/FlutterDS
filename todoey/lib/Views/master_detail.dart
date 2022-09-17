@@ -19,7 +19,7 @@ class _MaasterDetailPageState extends State<MaasterDetailPage> {
     return Scaffold(
       appBar: AppBar(),
       body: OrientationBuilder(builder: (context, orientation) {
-        
+
         if (MediaQuery.of(context).size.width > 600) {
           isLargeScreen = true;
         } else {
@@ -35,7 +35,7 @@ class _MaasterDetailPageState extends State<MaasterDetailPage> {
                 setState(() {});
               } else {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return DetailPage();
+                  return DetailPage(data: value,);
                 }));
               }
             }),

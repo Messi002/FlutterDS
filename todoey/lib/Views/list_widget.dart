@@ -4,9 +4,9 @@ typedef ItemSelectedCallback = Null Function(int value);
 // typedef Null ItemSelectedCallback(int value)
 
 class ListWidget extends StatefulWidget {
-  final int? count;
-  final ItemSelectedCallback? onItemSelected;
-  ListWidget({super.key, this.count,  this.onItemSelected});
+  final int count;
+  final ItemSelectedCallback onItemSelected;
+  ListWidget({super.key, required this.count,  required this.onItemSelected});
 
   @override
   State<ListWidget> createState() => _ListWidgetState();
@@ -23,7 +23,7 @@ class _ListWidgetState extends State<ListWidget> {
             child: Card(
               child: InkWell(
                 onTap: () {
-                  widget.onItemSelected!(index);
+                  widget.onItemSelected(index);
                 },
                 child: Row(
                   children: [

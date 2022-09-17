@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:todoey/Views/detail_widget.dart';
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({super.key, this.data});
+  const DetailPage({super.key,required this.data});
 
-  final int? data;
+  final int data;
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -15,7 +15,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: DetailWidget(data: widget.data!),
+      body: DetailWidget(data: widget.data),
     );
   }
 }
