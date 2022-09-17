@@ -40,7 +40,7 @@ class HomeScreen extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: List.generate(6, (index) {
-            return Expanded(
+            return Flexible(
                 child: Container(
               color: colors[index],
               child: Center(
