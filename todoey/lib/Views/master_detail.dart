@@ -1,3 +1,5 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/material.dart';
 import 'package:todoey/Views/detail_page.dart';
 import 'package:todoey/Views/detail_widget.dart';
@@ -17,9 +19,9 @@ class _MasterDetailPageState extends State<MasterDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar( title: Text('${Platform.operatingSystem}'),),
       body: OrientationBuilder(builder: (context, orientation) {
-
+        
         if (MediaQuery.of(context).size.width > 600) {
           isLargeScreen = true;
         } else {
@@ -29,18 +31,27 @@ class _MasterDetailPageState extends State<MasterDetailPage> {
         return Row(
           children: [
             Expanded(
-                child: ListWidget(count: 10, onItemSelected: (value) {
-              if (isLargeScreen) {
-                selectedValue = value;
-                setState(() {});
-              } else {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return DetailPage(data: value,);
-                }));
-              }
-            }),
+              child: ListWidget(
+                  count: 21,
+                  onItemSelected: (value) {
+                    if (isLargeScreen) {
+                      selectedValue = value;
+                      setState(() {});
+                    } else {
+                      Navigator.push(context,
+                          MaterialPageRoute(
+                            
+                            builder: (context) {
+                        return DetailPage(
+                          data: value,
+                        );
+                      }));
+                    }
+                  }),
             ),
-            isLargeScreen ?  Expanded(child: DetailWidget(selectedValue)) : Container(),
+            isLargeScreen
+                ? Expanded(child: DetailWidget(selectedValue))
+                : Container(),
           ],
         );
       }),

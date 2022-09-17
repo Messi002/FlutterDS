@@ -6,7 +6,7 @@ typedef ItemSelectedCallback = Null Function(int value);
 class ListWidget extends StatefulWidget {
   final int count;
   final ItemSelectedCallback onItemSelected;
-  ListWidget({super.key, required this.count,  required this.onItemSelected});
+  ListWidget({super.key, required this.count, required this.onItemSelected});
 
   @override
   State<ListWidget> createState() => _ListWidgetState();
@@ -15,6 +15,7 @@ class ListWidget extends StatefulWidget {
 class _ListWidgetState extends State<ListWidget> {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData media = MediaQuery.of(context);
     return ListView.builder(
         itemCount: widget.count,
         itemBuilder: (context, index) {
@@ -27,8 +28,18 @@ class _ListWidgetState extends State<ListWidget> {
                 },
                 child: Row(
                   children: [
-                    Padding(padding: const EdgeInsets.all(16.0),
-                    child: Text(index.toString(), style: TextStyle(fontSize: 22.0),),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          top: 16.0,
+                          right: 16,
+                          bottom: 16,
+                          left: media.orientation == Orientation.landscape
+                              ? 60
+                              : 16),
+                      child: Text(
+                        index.toString(),
+                        style: TextStyle(fontSize: 22.0),
+                      ),
                     )
                   ],
                 ),
