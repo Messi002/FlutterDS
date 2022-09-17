@@ -7,7 +7,7 @@ import 'package:flutter/foundation.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  List<Color> colors = [Colors.red, Colors.blue, Colors.purple, Colors.teal];
+  List<Color> colors = [Colors.red,  Colors.purple, Colors.teal,Colors.blue, Colors.purple, Colors.teal];
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
           return Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: List.generate(4, (index) {
+              children: List.generate(6, (index) {
                 return Expanded(
                     child: Container(
                   color: colors[index],
@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: List.generate(4, (index) {
+          children: List.generate(6, (index) {
             return Expanded(
                 child: Container(
               color: colors[index],
