@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:todoey/Views/home_screen.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:todoey/Views/master_detail.dart';
 
 // import 'Screens/task_screen.dart';
 
@@ -19,12 +20,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       useInheritedMediaQuery: true,
       // locale: DevicePreview.locale(),
       builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: MasterDetailPage(),
     );
   }
 }

@@ -4,14 +4,14 @@ import 'package:todoey/Views/detail_widget.dart';
 
 import 'list_widget.dart';
 
-class MaasterDetailPage extends StatefulWidget {
-  const MaasterDetailPage({super.key});
+class MasterDetailPage extends StatefulWidget {
+  const MasterDetailPage({super.key});
 
   @override
-  State<MaasterDetailPage> createState() => _MaasterDetailPageState();
+  State<MasterDetailPage> createState() => _MasterDetailPageState();
 }
 
-class _MaasterDetailPageState extends State<MaasterDetailPage> {
+class _MasterDetailPageState extends State<MasterDetailPage> {
   var selectedValue = 0;
   var isLargeScreen = false;
   @override
@@ -40,7 +40,7 @@ class _MaasterDetailPageState extends State<MaasterDetailPage> {
               }
             }),
             ),
-            isLargeScreen ?  Expanded(child: DetailWidget(data: selectedValue)) : Container(),
+            isLargeScreen ?  Expanded(child: DetailWidget(selectedValue)) : Container(),
           ],
         );
       }),

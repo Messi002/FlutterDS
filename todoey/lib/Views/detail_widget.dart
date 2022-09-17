@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DetailWidget extends StatefulWidget {
- DetailWidget({super.key, required this.data, });
+ DetailWidget( this.data, );
 
   final int data;
 

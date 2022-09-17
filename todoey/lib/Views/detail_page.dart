@@ -15,7 +15,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: DetailWidget(data: widget.data),
+      body: DetailWidget(widget.data),
     );
   }
 }
