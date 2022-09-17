@@ -40,7 +40,7 @@ class _MasterDetailPageState extends State<MasterDetailPage> {
                     } else {
                       Navigator.push(context,
                           MaterialPageRoute(
-                            fullscreenDialog: true,
+                            // fullscreenDialog: true,
                             builder: (context) {
                         return DetailPage(
                           data: value,
