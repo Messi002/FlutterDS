@@ -8,14 +8,14 @@ import '../widgets/task_list.dart';
 class TasksScreen extends StatelessWidget {
   const TasksScreen({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showModalBottomSheet(context: context, builder:(context) => AddTaskScreen());
+          showModalBottomSheet(
+              context: context, builder: (context) => AddTaskScreen());
         },
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
@@ -30,14 +30,19 @@ class TasksScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               // ignore: prefer_const_literals_to_create_immutables
               children: <Widget>[
-                CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 30.0,
-                    child: Icon(
-                      Icons.list,
-                      size: 30,
-                      color: Colors.black,
-                    )),
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 30.0,
+                      child: Icon(
+                        Icons.list,
+                        size: 30,
+                        color: Colors.black,
+                      )),
+                ),
                 SizedBox(height: 10.0),
                 Text(
                   'Todoey',
