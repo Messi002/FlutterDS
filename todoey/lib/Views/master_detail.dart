@@ -29,7 +29,7 @@ class _MaasterDetailPageState extends State<MaasterDetailPage> {
         return Row(
           children: [
             Expanded(
-                child: ListWidget(10, (value) {
+                child: ListWidget(count: 10, onItemSelected: (value) {
               if (isLargeScreen) {
                 selectedValue = value;
                 setState(() {});
